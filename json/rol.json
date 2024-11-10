@@ -1,0 +1,33 @@
+[
+  {
+    "idRol": 1,
+    "nombreRol": "administrador",
+    "permisos": [
+      "gestionar_usuarios",
+      "aprobar_articulos",
+      "editar_secciones"
+    ]
+  },
+  {
+    "idRol": 2,
+    "nombreRol": "reportero",
+    "permisos": [
+      "gestionar_usuarios",
+      "aprobar_articulos"
+    ]
+  },
+  {
+    "idRol": 3,
+    "nombreRol": "lector-prueba",
+    "permisos": [
+      "ver_articulos"
+    ]
+  },
+  {
+    "idRol": 4,
+    "nombreRol": "lector-pago",
+    "permisos": [
+      "ver_articulos"
+    ]
+  }
+]

@@ -1,0 +1,9 @@
+[
+  {
+    "idAdministrador": 1,
+    "nombre": "Carla Ramirez",
+    "email": "carla.ramirez@example.com",
+    "contrasena": "hashed_password",
+    "idRol": 1
+  }
+]

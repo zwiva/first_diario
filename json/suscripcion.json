@@ -1,0 +1,16 @@
+[
+  {
+    "idSuscripcion": 1,
+    "tipo": "prueba",
+    "fechaInicio": "2024-01-15",
+    "fechaVencimiento": "2025-01-15",
+    "costo": 0
+  },
+  {
+    "idSuscripcion": 2,
+    "tipo": "paga",
+    "fechaInicio": "2024-01-15",
+    "fechaVencimiento": "2025-01-15",
+    "costo": 9.99
+  }
+]

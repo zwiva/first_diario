@@ -1,0 +1,13 @@
+[
+  {
+    "idArticulo": 1,
+    "titulo": "Inteligencia Artificial en 2024",
+    "contenido": "Texto completo del artículo...",
+    "fechaPublicacion": "2024-03-10",
+    "estadoPublicacion": "publicado",
+    "idEstadoPublicacion": 3,
+    "idAutor": 1,
+    "secciones": [1,2],
+    "imagenes": [1,2]
+  }
+]
