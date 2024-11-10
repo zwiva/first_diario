@@ -1,0 +1,12 @@
+table {}
+
+th,
+td {
+  padding: 0.25em;
+}
+
+.table_actions {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

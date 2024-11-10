@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diario Online</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/views/allUsers.css">
   <link rel="stylesheet" href="css/shared/table.css">
   <script defer type="module" src="js/main.js"></script>
   <script defer src="js/components/views/user-all/allUsers.js"></script>
@@ -17,7 +18,55 @@
 
   <main>
     <h1>Lista usuarios</h1>
-    <div class="user_list">
+    <div class="user_list" style="display: flex; justify-content: center;">
+      <table style="width: 80%;">
+        <thead>
+          <th>Tipo</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Apellido 2</th>
+          <th>Acciones</th>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>prueba</td>
+            <td>Carlos</td>
+            <td>Segovia</td>
+            <td>Segura</td>
+            <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
+          </tr>
+          <tr>
+            <td>premium</td>
+            <td>Carlos</td>
+            <td>Segovia</td>
+            <td>Segura</td>
+            <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
+          </tr>
+          <tr>
+            <td>administrador</td>
+            <td>Carlos</td>
+            <td>Segovia</td>
+            <td>Segura</td>
+            <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
+          </tr>
+          <tr>
+            <td>reportero</td>
+            <td>Carlos</td>
+            <td>Segovia</td>
+            <td>Segura</td>
+            <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
+          </tr>
+          <tr>
+            <td>prueba</td>
+            <td>Carlos</td>
+            <td>Segovia</td>
+            <td>Segura</td>
+            <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
+          </tr>
+
+        </tbody>
+      </table>
 
     </div>
   </main>

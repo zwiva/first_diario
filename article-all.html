@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diario Online</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/views/allArticles.css">
   <link rel="stylesheet" href="css/shared/table.css">
   <script defer type="module" src="js/main.js"></script>
   <script defer src="js/components/views/article-all/allArticles.js"></script>
@@ -17,7 +18,50 @@
   
   <main>
     <h1>Lista articulos (vista reportero)</h1>
-    <p>aaa.</p>
+
+    <div class="article_list" style="display: flex; justify-content: center;">
+    
+      <table style="width: 80%;">
+    
+        <thead>
+          <th>Titulo</th>
+          <th>Secciones</th>
+          <th>Fecha creación</th>
+          <th>Acciones</th>
+        </thead>
+
+        <tbody>
+        
+          <tr>
+            <td>titulo 1</td>
+            <td>seccion 1</td>
+            <td>01/01/1990</td>
+            <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
+          </tr>
+          <tr>
+            <td>titulo 2</td>
+            <td>seccion 1, seccion 3</td>
+            <td>01/01/1990</td>
+            <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
+          </tr>
+          <tr>
+            <td>titulo 3</td>
+            <td>seccion 2</td>
+            <td>01/01/1990</td>
+            <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
+          </tr>
+          <tr>
+            <td>titulo 4</td>
+            <td>seccion 1, seccion 4</td>
+            <td>01/01/1990</td>
+            <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
   </main>
 
   <footer id="footer-container"></footer>
