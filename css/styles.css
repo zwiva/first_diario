@@ -92,7 +92,7 @@ main {
 .footer {
   background-color: black;
   color: white;
-  padding: 1em;
+  padding: 2em;
   display: flex;
   justify-content: center;
 }
@@ -101,15 +101,18 @@ main {
   width: 100%;
   max-width: 1200px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-item {
   color: white;
   text-decoration: none;
   font-size: 1.2em;
-  margin: 1em;
-  background-color: red;
+  margin: 0.25em;
+  font-size: 1em;
+  /* background-color: red; */
 }
 
 .btn-section {
