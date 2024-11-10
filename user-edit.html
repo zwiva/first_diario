@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diario Online</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/views/newUser.css">
+  <link rel="stylesheet" href="css/shared/form.css">
+  <script defer type="module" src="js/main.js"></script>
+  <script defer src="js/components/views/user-edit/editUser.js"></script>
+
+</head>
+
+<body>
+  <header id="navbar-container"></header>
+
+  <main>
+    <p>Administrador</p>
+    <br>
+    <p>viene de tabla de todos los usuarios, desde un boton</p>
+    <p>Formulario creacion usuario cargado con data usuario</p>
+
+    <div class="form-section">
+      <h2 class="title_section">Editar usuario</h2>
+
+      <form action="" class="medium_form">
+
+        <label for="" class="label-body">
+          <p class="form-label">Nombre</p>
+          <input type="text" class="form-input">
+        </label>
+
+        <label for="" class="label-body">
+          <p class="form-label">Apellido Paterno</p>
+          <input type="text" class="form-input">
+        </label>
+
+        <label for="" class="label-body">
+          <p class="form-label">Apellido Materno</p>
+          <input type="text" class="form-input">
+        </label>
+
+        <label for="" class="label-body">
+          <p class="form-label">Rut</p>
+          <input type="text" class="form-input">
+        </label>
+
+        <label for="" class="label-body">
+          <p class="form-label">Email</p>
+          <input type="text" class="form-input">
+        </label>
+
+        <label for="" class="label-body">
+          <p class="form-label">Asignar contraseña</p>
+          <input type="text" class="form-input">
+        </label>
+
+        <label for="" class="label-body">
+          <p class="form-label">Tipo usuario</p>
+        </label>
+
+        <div for="" class="label-checkbox--group">
+
+          <div class="label-checkbox">
+            <span>Prueba</span>
+            <input type="checkbox" class="form-input--checkbox">
+          </div>
+
+          <div class="label-checkbox">
+            <span>Premium</span>
+            <input type="checkbox" class="form-input--checkbox">
+          </div>
+
+          <div class="label-checkbox">
+            <span>Reportero</span>
+            <input type="checkbox" class="form-input--checkbox">
+          </div>
+
+          <div class="label-checkbox">
+            <span>Administrador</span>
+            <input type="checkbox" class="form-input--checkbox">
+          </div>
+        </div>
+
+      </form>
+
+      <div class="btn-section">
+        <button class="btn" onclick="editUser()">Editar usuario</button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer id="footer-container"></footer>
+</body>
+
+</html>

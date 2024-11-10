@@ -6,15 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diario Online</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/views/login.css">
+  <link rel="stylesheet" href="css/shared/form.css">
   <script defer type="module" src="js/main.js"></script>
+  <script defer src="js/components/views/login/login.js"></script>
+
 </head>
 
 <body>
   <header id="navbar-container"></header>
   
   <main>
-    <h1>Login</h1>
-    <p>aaa.</p>
+
+    <div class="form-section">
+      <h2 class="title_section">Login</h2>
+
+      <form action="" class="mini_form">
+
+        <label for="" class="label-body">
+          <p class="form-label">Email usuario</p>
+          <input type="email" class="form-input">
+        </label>
+
+        <label for="" class="label-body">
+          <p class="form-label">Contraseña</p>
+          <input type="password" class="form-input">
+        </label>
+
+      </form>
+
+      <div class="btn-section">
+        <button class="btn" onclick="logIn('intern')">Ingresar</button>
+      </div>
+
+      <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+        <p style="margin-right: 0.25em;">¿No esta registrado? </p><a href="registro.html">Regístrese</a>
+      </div>
+    
+    </div>
+
   </main>
 
   <footer id="footer-container"></footer>
