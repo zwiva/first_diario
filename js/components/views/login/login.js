@@ -1,29 +1,31 @@
 console.log('andando el login.js');
 
-export function logIn() {
-  const usrElement = document.getElementById('user');
-  let usr = usrElement.value;
+import { login, logout } from './../../../utils/auth';
+import { fetchProtectedData } from './../../../utils/protected';
 
-  const pswElement = document.getElementById('pass');
-  let psw = pswElement.value;
-
-  let data = {
-    usr, psw
-  }
-  console.log('usr', usr)
-  console.log('psw', psw)
-
-  localStorage.setItem('data', JSON.stringify(data))
-
-  // llamar api de usuario
-  // retornar datos usuarios
+document.getElementById('btnlogin').addEventListener('click', async () => {
+  console.log('NUUUUUEVO');
   
-  // let result = getIn(data) // setea el localStorage con data
-  // console.log('acaaaa', result);
+    const username = document.getElementById('user').value;
+    const password = document.getElementById('pass').value;
+    const success = await login(username, password);
 
-  window.location.href = "./extra.html" // a todo evento redirige
-  // window.location.href = "./index.html" // a todo evento redirige
-}
+    if (success) {
+        // alert('Autenticación exitosa');
+        window.location.href = "./index.html" // a todo evento redirige
+    } else {
+        alert('Credenciales incorrectas');
+    }
+});
 
-document.querySelector('#btnlogin').addEventListener('click', logIn)
+// document.getElementById('fetchDataButton').addEventListener('click', async () => {
+//     const data = await fetchProtectedData();
+//     if (data) {
+//         alert(`Datos protegidos: ${JSON.stringify(data)}`);
+//     }
+// });
 
+// document.getElementById('logoutButton').addEventListener('click', () => {
+//     logout();
+//     alert('Cerraste sesión');
+// });
