@@ -9,8 +9,7 @@
   <link rel="stylesheet" href="css/views/login.css">
   <link rel="stylesheet" href="css/shared/form.css">
   <script defer type="module" src="js/main.js"></script>
-  <script defer src="js/components/views/login/login.js"></script>
-
+  <script defer type="module" src="js/components/views/login/login.js"></script>
 </head>
 
 <body>
@@ -25,18 +24,18 @@
 
         <label for="" class="label-body">
           <p class="form-label">Email usuario</p>
-          <input type="email" class="form-input">
+          <input type="email" id="user" class="form-input">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Contraseña</p>
-          <input type="password" class="form-input">
+          <input type="password" id="pass" class="form-input">
         </label>
 
       </form>
 
       <div class="btn-section">
-        <button class="btn" onclick="logIn('intern')">Ingresar</button>
+        <button class="btn" id="btnlogin">Ingresar</button>
       </div>
 
       <div style="display: flex; justify-content: center; flex-wrap: wrap;">
@@ -48,6 +47,7 @@
   </main>
 
   <footer id="footer-container"></footer>
+
 </body>
 
 </html>
