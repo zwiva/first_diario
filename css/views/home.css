@@ -101,8 +101,11 @@ body {
 }
 
 .article-tag-list--each {
-  color: var(--tags);
+  color: var(--tag);
   margin: 0.25em 0;
+  font-family: "Electrolize", sans-serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
 @media (min-width: 768px) {
@@ -120,13 +123,6 @@ body {
     margin: 0.25em;
     text-align: end;
   }
-
-
-
-  .article-tag-list--each {
-    color: var(--tags);
-  }
-
 }
 
 /* ---- index_content-section--right ---- */
@@ -136,7 +132,7 @@ body {
 }
 
 .section-title {
-  color: var(--tags);
+  color: var(--tag);
   font-weight: bold;
   text-align: start;
   margin: 0.3em;
@@ -149,6 +145,13 @@ body {
     width: 20%;
     padding: 1em;
   }  
+  .each_section {
+    font-family: "Electrolize", sans-serif;
+    font-weight: 400;
+    /* font-size: 1.em; */
+    font-style: normal;
+
+  }
 }  
 
 

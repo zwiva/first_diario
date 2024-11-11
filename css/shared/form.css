@@ -64,13 +64,3 @@
   border-radius: 1.5em;
   background-color: rgb(232, 215, 255);
 }
-
-.label-checkbox--group {
-  display: flex;
-  justify-content: center;
-}
-
-.label-checkbox {
-  margin: 0 0.5em;
-  color: gray;
-}
