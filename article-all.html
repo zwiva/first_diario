@@ -19,48 +19,23 @@
   <main>
     <h1>Lista articulos (vista reportero)</h1>
 
-    <div class="article_list" style="display: flex; justify-content: center;">
+    <div class="article_list" style="display: flex; justify-content: center;" >
     
       <table style="width: 80%;">
     
         <thead>
           <th>Titulo</th>
           <th>Secciones</th>
+          <th>idAutor</th>
           <th>Fecha creación</th>
+          <th>Estado publicación</th>
           <th>Acciones</th>
         </thead>
-
-        <tbody>
         
-          <tr>
-            <td>titulo 1</td>
-            <td>seccion 1</td>
-            <td>01/01/1990</td>
-            <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
-          </tr>
-          <tr>
-            <td>titulo 2</td>
-            <td>seccion 1, seccion 3</td>
-            <td>01/01/1990</td>
-            <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
-          </tr>
-          <tr>
-            <td>titulo 3</td>
-            <td>seccion 2</td>
-            <td>01/01/1990</td>
-            <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
-          </tr>
-          <tr>
-            <td>titulo 4</td>
-            <td>seccion 1, seccion 4</td>
-            <td>01/01/1990</td>
-            <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
-          </tr>
-
+        <tbody id="articulos-container">
         </tbody>
-
-      </table>
-
+        
+        </table>
     </div>
   </main>
 
