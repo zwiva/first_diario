@@ -7,6 +7,11 @@
   <title>Diario Online</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/views/home.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Geo:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
   <script defer type="module" src="js/main.js"></script>
   <script defer src="js/components/views/home/home.js"></script>
 </head>
@@ -27,6 +32,7 @@
 
     <div class="content_section">
 
+      <!-- PENDIENTE: -->
       <div class="content_section-left">
 
         <div class="article_short">
@@ -93,13 +99,11 @@
           <a href="">ir a noticia</a>
         </div>
 
-
       </div>
 
+      <!-- PENDIENTE: -->
       <div class="content_section-center">
-
         <h2>Recientes</h2>
-
         <div class="article-section">
 
           <div class="article-body">
@@ -120,9 +124,9 @@
             <a class="article-link" href="">ir a noticia completa</a>
 
             <div class="article-tag-list">
-              <div class="article-tag-list--each">Reciente</div>
-              <div class="article-tag-list--each">Conferencias y ...</div>
-              <div class="article-tag-list--each">Otro tag</div>
+
+              <div class="article-tag-list--each">Medicina</div>
+
             </div>
 
           </div>
@@ -142,12 +146,12 @@
               incidunt tenetur.
             </p>
 
-            <a class="article-link" href="">ir a noticia completa</a>
+            <p class="article-link">ir a noticia completa</p>
 
             <div class="article-tag-list">
-              <div class="article-tag-list--each">Reciente</div>
-              <div class="article-tag-list--each">Conferencias y ...</div>
-              <div class="article-tag-list--each">Otro tag</div>
+
+              <div class="article-tag-list--each">Eventos y Conferencias</div>
+
             </div>
 
           </div>
@@ -155,31 +159,11 @@
         </div>
       </div>
 
+      <!-- LISTO: -->
       <div class="content_section-right">
+        <h4 style="margin: 1em; text-align: center;font-size: 1.5em;">Secciones</h4>
 
-        <div class="">
-
-        </div>
-        <div class="section-title">
-          <h4>Ultima hora</h4>
-        </div>
-
-        <div class="section-title">
-          <h4>Aplicaciones de IA</h4>
-        </div>
-
-        <div class="section-title">
-          <h4>Aplicaciones de IA</h4>
-        </div>
-
-        <div class="section-title">
-          <h4>Aplicaciones de IA</h4>
-        </div>
-
-        <div class="section-title">
-          <h4>Aplicaciones de IA</h4>
-        </div>
-
+        <div id="index-sections" style="padding-left: 1em;"></div>
       </div>
 
     </div>

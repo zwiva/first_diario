@@ -2,3 +2,8 @@ body {
   /* no va */
   background-color: chartreuse;
 }
+
+.article_list {
+  display: flex;
+  justify-content: center;
+}

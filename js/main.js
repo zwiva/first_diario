@@ -26,3 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // detectTypeUser();
+
+
+export function generarNoticia(param){
+console.log('param main', param);
+
+}

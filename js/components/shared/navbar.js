@@ -61,12 +61,13 @@ export function navbarComponent() {
 
   const navbar = document.createElement('nav');
 
+  
+  // <a class="nav-item general-item" href="nosotros.html">El faro</a>
   navbar.className = "navbar";
   navbar.innerHTML = `
     <div class="navbar-body">
       
       <a class="nav-item general-item" href="index.html">Noticias</a>
-      <a class="nav-item general-item" href="nosotros.html">El faro</a>
       <a class="nav-item general-item" href="secciones.html">Secciones</a>
       <a class="nav-item general-item" href="registro.html">Registro</a>
       <a class="nav-item general-item" href="login.html">Login</a>
