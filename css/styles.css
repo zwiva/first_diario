@@ -1,9 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Electrolize&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 h1,
 h2,
@@ -22,6 +22,13 @@ h2 {
 
 h3 {
   font-size: 1.5em;
+}
+
+.mt-05{
+  margin-top: 0.5em;
+}
+.mt-1{
+  margin-top: 1em;
 }
 
 .font-size-xxxs {
@@ -98,9 +105,13 @@ h3 {
 
 /* colores compartidos */
 :root {
-  --tag: rgb(179, 179, 179);
+  --tag: rgb(103, 47, 207);
   --hr: rgba(185, 185, 185, 0.569);
-  /* --color-acento: #e74c3c; */
+  --btn-border: blueviolet;
+  --btn-bg: blueviolet;
+  --btn-bg-hov: white;
+  --btn-text: white;
+  --btn-text-hov: blueviolet;
   /* --color-texto-principal: #333333; */
   /* --color-fondo: #f5f5f5; */
 }
@@ -127,6 +138,12 @@ main {
   max-width: 1200px;
   padding: 2em;
   background-color: white;
+}
+
+.main_subtitle {
+  margin: 2em 1em 0 1em;
+  text-align: center;
+  font-size: 1.5em;
 }
 
 @media (min-width: 768px) {
@@ -211,18 +228,18 @@ main {
 
 .btn {
   border-radius: 3em;
-  border: 2px solid blueviolet;
+  border: 2px solid var(--btn-border);
   padding: 1em 2em;
-  background-color: blueviolet;
-  color: white;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
 }
 
 .btn:hover {
   /* border-radius: 3em; */
-  border: 2px solid blueviolet;
+  border: 2px solid var(--btn-border);
   padding: 1em 2em;
   background-color: white;
-  color: blueviolet;
+  color: var(--btn-text-hov);
 }
 
 /* for use */
