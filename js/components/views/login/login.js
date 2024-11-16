@@ -1,21 +1,20 @@
 console.log('andando el login.js');
 
 import { login, logout } from './../../../utils/auth';
-import { fetchProtectedData } from './../../../utils/protected';
+// import { fetchProtectedData } from './../../../utils/protected';
 
 document.getElementById('btnlogin').addEventListener('click', async () => {
-  console.log('NUUUUUEVO');
-  
-    const username = document.getElementById('user').value;
-    const password = document.getElementById('pass').value;
-    const success = await login(username, password);
 
-    if (success) {
-        // alert('Autenticación exitosa');
-        window.location.href = "./index.html" // a todo evento redirige
-    } else {
-        alert('Credenciales incorrectas');
-    }
+  const username = document.getElementById('user').value;
+  const password = document.getElementById('pass').value;
+  const success = await login(username, password);
+
+  if (success) {
+    // alert('Autenticación exitosa');
+    window.location.href = "./index.html" // a todo evento redirige
+  } else {
+    alert('Credenciales incorrectas');
+  }
 });
 
 // document.getElementById('fetchDataButton').addEventListener('click', async () => {
