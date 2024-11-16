@@ -9,58 +9,60 @@
   <link rel="stylesheet" href="css/views/allUsers.css">
   <link rel="stylesheet" href="css/shared/table.css">
   <script defer type="module" src="js/main.js"></script>
-  <script defer src="js/components/views/user-all/allUsers.js"></script>
+  <script defer type="module" src="js/components/views/user-all/allUsers.js"></script>
 
 </head>
 
 <body>
+  
   <header id="navbar-container"></header>
 
   <main>
-    <h1>Lista usuarios</h1>
-    
-     <!-- PENDIENTE: -->
-    <div class="user_list" style="display: flex; justify-content: center;">
-      <table style="width: 80%;">
+
+    <h1>Usuarios</h1>
+
+    <!-- PENDIENTE: -->
+    <div class="user_list">
+
+      <table class="user_table">
+      
         <thead>
           <th>Tipo</th>
+          <th>Rut</th>
           <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Apellido 2</th>
+          <th>1er Apellido</th>
+          <th>2do Apellido</th>
           <th>Acciones</th>
         </thead>
 
         <tbody>
           <tr>
-            <td>prueba</td>
+            <td style="text-align: left;">prueba</td>
+            <td>12.345.678-9</td>
             <td>Carlos</td>
             <td>Segovia</td>
             <td>Segura</td>
             <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
           </tr>
           <tr>
-            <td>premium</td>
+            <td style="text-align: left;">premium</td>
+            <td>12.345.678-9</td>
             <td>Carlos</td>
             <td>Segovia</td>
             <td>Segura</td>
             <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
           </tr>
           <tr>
-            <td>administrador</td>
+            <td style="text-align: left;">administrador</td>
+            <td>12.345.678-9</td>
             <td>Carlos</td>
             <td>Segovia</td>
             <td>Segura</td>
             <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
           </tr>
           <tr>
-            <td>reportero</td>
-            <td>Carlos</td>
-            <td>Segovia</td>
-            <td>Segura</td>
-            <td class="table_actions" style="text-align: center;"><button>editar</button><button>Eliminar</button></td>
-          </tr>
-          <tr>
-            <td>prueba</td>
+            <td style="text-align: left;">reportero</td>
+            <td>12.345.678-9</td>
             <td>Carlos</td>
             <td>Segovia</td>
             <td>Segura</td>
@@ -68,12 +70,15 @@
           </tr>
 
         </tbody>
+
       </table>
 
     </div>
+
   </main>
 
   <footer id="footer-container"></footer>
+
 </body>
 
 </html>

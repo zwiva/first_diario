@@ -9,34 +9,39 @@
   <link rel="stylesheet" href="css/views/allArticles.css">
   <link rel="stylesheet" href="css/shared/table.css">
   <script defer type="module" src="js/main.js"></script>
-  <script defer src="js/components/views/article-all/allArticles.js"></script>
+  <script defer type="module" src="js/components/views/article-all/allArticles.js"></script>
 
 </head>
 
 <body>
   <header id="navbar-container"></header>
-  
+
   <main>
-    <h1>Lista articulos (vista reportero)</h1>
+    <h1>Artículos</h1>
 
     <!-- LISTO: -->
     <div class="article_list">
-    
-      <table style="width: 80%;">
-    
+
+      <table class="article_table">
+
         <thead>
-          <th>Titulo</th>
-          <th>Secciones</th>
+          <th style="width: 15%;">Titulo</th>
+          <th>Sección</th>
           <th>idAutor</th>
-          <th>Fecha creación</th>
-          <th>Estado publicación</th>
+          <th>Creado</th>
+          <th>Estado</th>
           <th>Acciones</th>
         </thead>
-        
+
         <tbody id="articulos-container">
         </tbody>
-        
-        </table>
+
+      </table>
+
+      <div class="article_msge">
+        <p>Ver en otro dispositivo de mayor tamaño.</p>
+      </div>
+      
     </div>
   </main>
 

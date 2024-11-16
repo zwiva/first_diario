@@ -1,9 +1,31 @@
 body {
   /* no va */
-  background-color: chartreuse;
+  /* background-color: chartreuse; */
 }
 
 .article_list {
   display: flex;
   justify-content: center;
+}
+
+.article_table {
+  display: none;
+}
+
+.article_msge {
+  display: block;
+}
+
+@media (min-width: 920px) {
+  .article_table {
+    display: block;
+    width: 100%;
+    font-size: 1em;
+    text-wrap: nowrap;
+    text-align: center;
+  }
+
+  .article_msge {
+    display: none;
+  }
 }

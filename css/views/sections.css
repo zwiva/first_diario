@@ -57,8 +57,6 @@ body {
     display: flex;
     flex-direction: row;
   }
-
-
 }
 
 @media (min-width: 768px) {

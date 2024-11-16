@@ -12,7 +12,7 @@ let role = '';
 // async function detectTypeUser() {
 //   const type = localStorage.getItem('fi4RQ0Y');
 //   // console.log('type:', type);
-  
+
 //   if(type != null){
 //     role = await decrypt(type, pert);
 //   }
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // detectTypeUser();
 
 
-export function generarNoticia(param){
-console.log('param main', param);
+export function generarNoticia(param) {
+  console.log('param main', param);
 
 }

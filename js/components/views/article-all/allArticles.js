@@ -3,7 +3,7 @@ console.log('andando allArticles.js');
 const articles = [
   {
     "id": 1,
-   "title": "El Impacto de la IA en la Medicina Moderna",
+    "title": "El Impacto de la IA en la Medicina Moderna",
     "urlImgPpal": "https://example.com/images/ia-medicina.jpg",
     "resumen": "Exploramos cómo la inteligencia artificial está revolucionando la medicina, desde diagnósticos precisos hasta tratamientos personalizados.",
     "parrafo1": "La inteligencia artificial ha comenzado a transformar el campo médico con aplicaciones que ayudan a los médicos a diagnosticar enfermedades más rápido y con mayor precisión.",
@@ -24,7 +24,7 @@ const articles = [
   },
   {
     "id": 2,
-   "title": "Machine Learning y el Reconocimiento Facial",
+    "title": "Machine Learning y el Reconocimiento Facial",
     "urlImgPpal": "https://example.com/images/reconocimiento-facial.jpg",
     "resumen": "Analizamos cómo el machine learning impulsa el desarrollo de tecnologías de reconocimiento facial y las controversias que las rodean.",
     "parrafo1": "El reconocimiento facial se ha convertido en una herramienta poderosa, impulsada principalmente por los algoritmos de machine learning.",
@@ -45,7 +45,7 @@ const articles = [
   },
   {
     "id": 3,
-   "title": "La IA en la Industria Automotriz",
+    "title": "La IA en la Industria Automotriz",
     "urlImgPpal": "https://example.com/images/ia-automotriz.jpg",
     "resumen": "La inteligencia artificial está rediseñando la industria automotriz con avances en vehículos autónomos y mantenimiento predictivo.",
     "parrafo1": "Los vehículos autónomos son quizás el ejemplo más claro del impacto de la IA en la industria automotriz.",
@@ -66,7 +66,7 @@ const articles = [
   },
   {
     "id": 4,
-   "title": "Inteligencia Artificial en la Educación",
+    "title": "Inteligencia Artificial en la Educación",
     "urlImgPpal": "https://example.com/images/ia-educacion.jpg",
     "resumen": "La IA transforma la educación al personalizar el aprendizaje y asistir a los educadores en la gestión de clases y estudiantes.",
     "parrafo1": "Con la ayuda de la IA, los sistemas educativos ahora pueden ofrecer experiencias de aprendizaje personalizadas.",
@@ -87,7 +87,7 @@ const articles = [
   },
   {
     "id": 5,
-   "title": "Robots Sociales y la IA en el Hogar",
+    "title": "Robots Sociales y la IA en el Hogar",
     "urlImgPpal": "https://example.com/images/robots-sociales.jpg",
     "resumen": "Los robots sociales impulsados por IA están comenzando a formar parte del hogar, asistiendo en tareas domésticas y ofreciendo compañía.",
     "parrafo1": "Los robots sociales, como asistentes de voz y robots para el hogar, son cada vez más comunes en el mercado.",
@@ -108,7 +108,7 @@ const articles = [
   },
   {
     "id": 6,
-   "title": "IA en la Educación: Personalización del Aprendizaje",
+    "title": "IA en la Educación: Personalización del Aprendizaje",
     "urlImgPpal": "https://example.com/images/ia-educacion.jpg",
     "resumen": "Descubre cómo la IA está permitiendo personalizar el aprendizaje para mejorar la experiencia educativa de cada estudiante.",
     "parrafo1": "Las plataformas de aprendizaje impulsadas por IA pueden adaptar el contenido al ritmo y estilo de cada estudiante.",
@@ -129,7 +129,7 @@ const articles = [
   },
   {
     "id": 7,
-   "title": "Evaluación Automática con IA: Un Cambio en la Educación",
+    "title": "Evaluación Automática con IA: Un Cambio en la Educación",
     "urlImgPpal": "https://example.com/images/evaluacion.jpg",
     "resumen": "Analizamos cómo la IA permite realizar evaluaciones automáticas y personalizadas en el sector educativo.",
     "parrafo1": "La IA puede facilitar la corrección automática de exámenes y tareas, ahorrando tiempo a los profesores.",
@@ -150,7 +150,7 @@ const articles = [
   },
   {
     "id": 8,
-   "title": "Tutores Virtuales: IA al Servicio de los Estudiantes",
+    "title": "Tutores Virtuales: IA al Servicio de los Estudiantes",
     "urlImgPpal": "https://example.com/images/tutor-virtual.jpg",
     "resumen": "Exploramos cómo los tutores virtuales de IA pueden ayudar a los estudiantes en sus estudios y resolver dudas en tiempo real.",
     "parrafo1": "Los tutores virtuales permiten a los estudiantes obtener asistencia personalizada en cualquier momento.",
@@ -171,7 +171,7 @@ const articles = [
   },
   {
     "id": 9,
-   "title": "IA y la Enseñanza de Idiomas: Una Nueva Era",
+    "title": "IA y la Enseñanza de Idiomas: Una Nueva Era",
     "urlImgPpal": "https://example.com/images/ia-idiomas.jpg",
     "resumen": "La inteligencia artificial está revolucionando el aprendizaje de idiomas con aplicaciones interactivas y personalizadas.",
     "parrafo1": "Las aplicaciones de IA ofrecen un aprendizaje de idiomas personalizado y adaptativo.",
@@ -192,7 +192,7 @@ const articles = [
   },
   {
     "id": 10,
-   "title": "Inteligencia Artificial en la Educación Infantil",
+    "title": "Inteligencia Artificial en la Educación Infantil",
     "urlImgPpal": "https://example.com/images/ia-infantil.jpg",
     "resumen": "Conoce cómo la IA está comenzando a integrarse en la educación infantil y sus posibles beneficios y desafíos.",
     "parrafo1": "Las herramientas de IA para niños pueden hacer que el aprendizaje sea más atractivo y accesible.",
@@ -213,7 +213,7 @@ const articles = [
   },
   {
     "id": 11,
-   "title": "La IA en la Educación Inclusiva",
+    "title": "La IA en la Educación Inclusiva",
     "urlImgPpal": "https://example.com/images/ia-inclusiva.jpg",
     "resumen": "Explora cómo la IA puede ayudar a crear un entorno de aprendizaje más inclusivo para estudiantes con necesidades especiales.",
     "parrafo1": "La inteligencia artificial facilita herramientas de aprendizaje para estudiantes con discapacidades.",
@@ -242,7 +242,7 @@ articles.forEach(articulo => {
   const articuloTr = document.createElement('tr');
 
   const titulo = document.createElement('td');
-  titulo.innerHTML = articulo.titulo
+  titulo.innerHTML = articulo.title
   articuloTr.appendChild(titulo)
 
   const seccion = document.createElement('td');
@@ -265,17 +265,19 @@ articles.forEach(articulo => {
   articuloTr.appendChild(estadoPublicacion)
 
   const acciones = document.createElement('td');
+  acciones.style.display = "flex"
+  acciones.style.justifyContent = "space-around"
   acciones.innerHTML = `<button onclick=editarArticulo(${articulo.id})>editar</button><button onclick=eliminarArticulo(${articulo.id})>Eliminar</button>`
   articuloTr.appendChild(acciones)
-  
+
   // Agrega el artículo al contenedor principal
   articulosContainer.appendChild(articuloTr);
 });
 
-function editarArticulo(id){
+function editarArticulo(id) {
   console.log('editar articulo', id);
 }
 
-function eliminarArticulo(id){
+function eliminarArticulo(id) {
   console.log('eliminar articulo', id);
 }

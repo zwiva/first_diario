@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/views/dashboard.css">
   <script defer type="module" src="js/main.js"></script>
-  <script defer src="js/components/views/dashboard/dashboard.js"></script>
+  <script defer type="module" src="js/components/views/dashboard/dashboard.js"></script>
 
 </head>
 
 <body>
+
   <header id="navbar-container"></header>
 
   <main>
@@ -25,27 +26,27 @@
       <div>
         <h4>Internal - reportero</h4>
         <p style="margin-bottom: 1em;">En esta sección puedes editar tus artículos y contenido: </p>
-        <div>
-          <button class="btn" onclick="goTo('create-article')">Crear articulo</button>
-          <button class="btn" onclick="goTo('edit-articles')">Gestionar artículos</button>
+        <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+          <button class="btn" style="margin: 0.5em;" onclick="goTo('create-article')">Crear articulo</button>
+          <button class="btn" style="margin: 0.5em;" onclick="goTo('edit-articles')">Gestionar artículos</button>
         </div>
       </div>
 
       <div>
         <h4>General</h4>
         <p style="margin-bottom: 1em;">En esta sección puedes editar tus preferencias y datos de usuario: </p>
-        <div>
-          <button class="btn" onclick="goTo('edit-account')">Gestionar cuenta</button>
-          <button class="btn" onclick="goTo('delete-account')">Eliminar cuenta</button>
+        <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+          <button class="btn" style="margin: 0.5em;" onclick="goTo('edit-account')">Gestionar cuenta</button>
+          <button class="btn" style="margin: 0.5em;" onclick="goTo('delete-account')">Eliminar cuenta</button>
         </div>
       </div>
 
       <div>
         <h4>Administrador</h4>
         <p style="margin-bottom: 1em;">En esta sección puedes editar usuarios: </p>
-        <div>
-          <button class="btn" onclick="goTo('create-user')">Crear usuario</button>
-          <button class="btn" onclick="goTo('edit-users')">Gestionar usuarios</button>
+        <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+          <button class="btn" style="margin: 0.5em;" onclick="goTo('create-user')">Crear usuario</button>
+          <button class="btn" style="margin: 0.5em;" onclick="goTo('edit-users')">Gestionar usuarios</button>
         </div>
       </div>
 
@@ -54,6 +55,7 @@
   </main>
 
   <footer id="footer-container"></footer>
+
 </body>
 
 </html>
