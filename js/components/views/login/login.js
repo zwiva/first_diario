@@ -1,4 +1,4 @@
-import { login, logout } from './../../../utils/auth';
+import { login, logout, getAuthToken } from './../../../utils/auth';
 
 document.getElementById('btnlogin').addEventListener('click', async () => {
 
@@ -7,16 +7,13 @@ document.getElementById('btnlogin').addEventListener('click', async () => {
 
   try {
     const result = await login(username, password);
-    console.log('result --->', result);
     if (!result?.isSuccess) {
       alert('Credenciales incorrectas');
       return;
     }
-
     window.location.href = "./index.html" // a todo evento redirige
-
   } catch (error) {
-    alert(`Error: ${error}`);
     console.log('error en login: ', error);
+    alert(`Error: ${error}`);
   }
 });
