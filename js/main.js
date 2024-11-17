@@ -1,23 +1,24 @@
-console.log('----andando main.js-----');
-
 import { renderNavbar } from './components/shared/navbar.js';
 import { renderFooter } from './components/shared/footer.js';
-// import { decrypt } from './utils/decrypt.js';
+import { verifyToken } from "./utils/helpers.js";
 
-// const pert = localStorage.getItem('fi4RQ0x')
-// console.log('*** 0 pert main ****', JSON.parse(pert));
+async function detectTypeUser() {
+  
+  verifyToken(import.meta.env.JWT_SECRET)
 
-let role = '';
+  if (!localStorage.getItem('auth-token')) {
+    const data = localStorage.getItem('auth-token');
 
-// async function detectTypeUser() {
-//   const type = localStorage.getItem('fi4RQ0Y');
-//   // console.log('type:', type);
+    // jwt.verify(data, import.meta.env.JWT_SECRET);
+    // await verifyToken(data, import.meta.env.JWT_SECRET)
+    console.log('no hay credenciales');
 
-//   if(type != null){
-//     role = await decrypt(type, pert);
-//   }
-//   console.log('role inMain:', role);
-// }
+  } else {
+
+    console.log('hay credenciales');
+  }
+
+}
 
 // Renderizar navbar en todas las páginas
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,10 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
   renderFooter("footer-container");
 });
 
-// detectTypeUser();
+detectTypeUser();
 
 
 export function generarNoticia(param) {
   console.log('param main', param);
-
 }

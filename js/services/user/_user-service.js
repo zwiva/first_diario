@@ -1,20 +1,21 @@
-import { endpointsLocal } from "./../../../environments/local.js";
-import { endpointsProd } from "./../../../environments/prod.js";
+
+import { CONFIG } from './../../config/config.js';
 
 export const getAllUsers = async () => {
-
-  console.log('ejecuta getAllUsers', endpointsLocal.allUsers);
+  
+  const endpoint = import.meta.env.VITE_API_URL + CONFIG.allUsers;
+  console.log('ejecuta getAllUsers', process);
 
   try {
-    let response = await fetch(endpointsLocal.allUsers);
+    let response = await fetch(endpoint);
 
     console.log('response', response);
 
-    // if (!response.ok) {
-    //   throw new Error(`HTTP error! status: ${response.status}`);
-    // }
     const data = await response.json();
+    
     console.log(data);
+
+
   } catch (error) {
     console.error('There was a problem with the fetch operation:', error);
   }
