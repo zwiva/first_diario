@@ -3,8 +3,7 @@ import { CONFIG } from './../../config/config.js';
 import { jwtDecode } from 'jwt-decode';
 
 export async function login(email, pass) {
-  // const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
-  const endpoint = 'http://localhost:3000' + CONFIG.login;
+  const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
 
   console.log('haciendo login en: ', endpoint);
   const response = await fetch(endpoint, {
