@@ -1,6 +1,6 @@
 
 import { CONFIG } from './../../config/config.js';
-import { jwtDecode } from 'jwt-decode';
+import { jwtDecode } from './../../node_modules/jwt-decode';
 
 export async function login(email, pass) {
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
