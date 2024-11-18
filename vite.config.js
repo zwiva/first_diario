@@ -17,5 +17,8 @@ export default defineConfig({
     'process.env': {
       VITE_API_URL: process.env.VITE_API_URL,  // Access environment variable in vite.config.js
     }
+  },
+  optimizeDeps: {
+    include: ['jwt-decode']
   }
 });
