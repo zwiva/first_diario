@@ -26,6 +26,7 @@ export async function login(email, pass) {
 }
 
 export function getAuthToken() {
+  console.log('aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
   const authToken = localStorage.getItem('auth-token');
   if (!authToken)
     return null;

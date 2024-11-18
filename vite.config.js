@@ -20,5 +20,10 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['jwt-decode']
+  },
+  resolve: {
+    alias: {
+      'jwt-decode': require.resolve('jwt-decode'),
+    },
   }
 });
