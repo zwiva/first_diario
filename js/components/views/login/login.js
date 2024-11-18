@@ -1,4 +1,4 @@
-import { login, logout, getAuthToken } from './../../../utils/auth';
+import { login, logout } from './../../../utils/auth';
 
 document.getElementById('btnlogin').addEventListener('click', async () => {
 
