@@ -1,6 +1,6 @@
 
 import { CONFIG } from './../../config/config.js';
-import { jwtDecode } from 'jwt-decode';
+import * as jwt_decode from 'jwt-decode';
 
 export async function login(email, pass) {
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
@@ -30,9 +30,9 @@ export function getAuthToken() {
   const authToken = localStorage.getItem('auth-token');
   if (!authToken)
     return null;
-  return jwtDecode(authToken);
+  return jwt_decode.jwtDecode(authToken);
 }
 
 export function logout() {
-  localStorage.removeItem('jwtToken'); // Borra el token en el logout
+  localStorage.removeItem('auth-token'); // Borra el token en el logout
 }
