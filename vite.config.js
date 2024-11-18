@@ -9,12 +9,16 @@ export default defineConfig({
         target: '*', // Express server URL
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''), // Removes /api from the request URL
-      },
+      }
     },
+    open: true
   },
   define: {
     'process.env': {
       VITE_API_URL: process.env.VITE_API_URL,  // Access environment variable in vite.config.js
-    },
+    }
   },
+  optimizeDeps: {
+    include: ['jwt-decode']
+  }
 });
