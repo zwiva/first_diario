@@ -1,11 +1,12 @@
-// import { getAuthToken } from './../../utils/auth.js';
+import { getAuthToken } from './../../utils/auth.js';
 
 function detectRole() {
   let idRole = 3;
-  // const token = getAuthToken();
-  // if (token != null) {
-  //   idRole = token.id_role;
-  // }
+  const token = getAuthToken();
+  if (token != null) {
+    idRole = token.id_role;
+  }
+  console.log('idRole ----->', idRole);
   return idRole;
 }
 
