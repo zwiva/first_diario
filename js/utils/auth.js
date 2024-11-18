@@ -16,8 +16,19 @@ export async function login(email, pass) {
 
   const result = await response.json();
 
+  console.log('result', result);
+
   if (result.isSuccess) {
-    localStorage.setItem('auth-token', JSON.stringify({ 'auth-token': result.data })); // Almacenar el token en localStorage
+
+    localStorage.setItem('auth-token', JSON.stringify({ 'auth-token': result.data.token }));
+
+    localStorage.setItem('navigation', JSON.stringify(({
+      'navigation': {
+        'id_role': result.data.id_role,
+        'name': result.data.name,
+        'lastname': result.data.name
+      }
+    })))
   } else {
     localStorage.clear();
   }

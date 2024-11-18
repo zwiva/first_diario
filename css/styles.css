@@ -113,6 +113,7 @@ h3 {
   --btn-bg-hov: white;
   --btn-text: white;
   --btn-text-hov: blueviolet;
+  --nav-item--accent: #c587ff;
   /* --color-texto-principal: #333333; */
   /* --color-fondo: #f5f5f5; */
 }

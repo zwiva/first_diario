@@ -1,12 +1,11 @@
-import { getAuthToken } from './../../utils/auth.js';
-
 function detectRole() {
   let idRole = 3;
-  // const token = getAuthToken();
-  // if (token != null) {
-  //   idRole = token.id_role;
-  // }
-  // console.log('idRole ----->', idRole);
+
+  if (localStorage.getItem('navigation')) {
+    let data = JSON.parse(localStorage.getItem('navigation'))
+    idRole = data.navigation.id_role;
+  }
+  
   return idRole;
 }
 
@@ -15,56 +14,65 @@ const appRoutes = [ // editar elementos
     "name": "Noticias",
     "href": "index.html",
     "type": "global",
-    "status": "unregistered"
+    "status": "unregistered",
+    "color": "white"
   },
   {
     "name": "Secciones",
     "href": "secciones.html",
     "type": "global",
-    "status": "unregistered"
+    "status": "unregistered",
+    "color": "white"
   },
   {
     "name": "Registro",
     "href": "registro.html",
     "type": "unregistered",
-    "status": "unregistered"
+    "status": "unregistered",
+    "color": "white"
   },
   {
     "name": "Login",
     "href": "login.html",
     "type": "unregistered",
-    "status": "unregistered"
+    "status": "unregistered",
+    "color": "var(--nav-item--accent)"
   },
   {
     "name": "+Nuevo artículo",
     "href": "article-new.html",
     "type": "internal",
-    "status": "registered"
+    "status": "registered",
+    "color": "white"
   },
   {
     "name": "Artículos",
     "href": "article-all.html",
     "type": "internal",
-    "status": "registered"
+    "status": "registered",
+    "color": "white"
   },
   {
     "name": "+Nuevo Usuario",
     "href": "user-create.html",
     "type": "superadmin",
-    "status": "registered"
+    "status": "registered",
+    "color": "white"
   },
   {
     "name": "Usuarios",
     "href": "user-all.html",
     "type": "superadmin",
-    "status": "registered"
+    "status": "registered",
+    "color": "white"
   },
   {
     "name": "Cuenta",
     "href": "dashboard.html",
     "type": "premium",
-    "status": "registered"
-  },
+    "status": "registered",
+    "color": "white"
+  }
 ]
 
 export function navbarComponent() {
@@ -95,6 +103,7 @@ export function navbarComponent() {
     } else if (idRole == 3 && route.type == 'unregistered') {
       const a = document.createElement('a');
       a.classList = ['nav-item'];
+      a.style.color = route.color;
       a.innerHTML = route.name;
       a.href = route.href;
       navString += a.outerHTML;
@@ -124,11 +133,12 @@ export function navbarComponent() {
       <div class="navbar-body" id="navbar-body">
         ${topNav}
         ${navByRole}
-        <a class="nav-item closeSession" style="color: #c587ff;">Cerrar sesion</a></div>
+        <a class="nav-item closeSession" style="color: var(--nav-item--accent);">Cerrar sesion</a></div>
       </div>
     `;
     navbar.querySelector('.closeSession').addEventListener('click', () => {
       localStorage.removeItem('auth-token');
+      localStorage.removeItem('navigation');
       window.location.href = "./index.html"
     });
   }
