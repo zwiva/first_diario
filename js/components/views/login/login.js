@@ -1,4 +1,4 @@
-import { login, logout } from './../../../utils/auth';
+import { login } from './../../../utils/auth';
 
 document.getElementById('btnlogin').addEventListener('click', async () => {
 

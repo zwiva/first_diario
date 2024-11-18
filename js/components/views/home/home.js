@@ -1,4 +1,5 @@
-// import { getAuthToken } from '../../../utils/auth.js';
+
+// 🚨 EN ESTA VISTA OCURRE LO SIGUIENTE: 🚨
 
 // Método para desencriptar el jwt
 // function init() {

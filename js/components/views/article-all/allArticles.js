@@ -1,5 +1,7 @@
 console.log('andando allArticles.js');
 
+// 🚨 EN ESTA VISTA SE MUESTRA UNA TABLA CON TODOS LOS ARTICULOS CREADOS 🚨
+
 const articles = [
   {
     "id": 1,

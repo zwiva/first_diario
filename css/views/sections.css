@@ -1,12 +1,5 @@
-body {
-  /* no va */
-  /* background-color: pink; */
-}
-
 .section_each {
   border-bottom: 1px solid blueviolet;
-  
-  padding: 2em;
   margin: 1em 0;
 }
 
@@ -53,16 +46,18 @@ body {
 /* for use */
 
 @media (min-width: 480px) {
+
+  .section_each {
+    padding: 3em;
+  }
+
   .section_each--group {
     display: flex;
     flex-direction: row;
   }
 }
 
-@media (min-width: 768px) {
-  body {
-    /* background-color: yellow; */
-  }
+@media (min-width: 1000px) {
 
   .section_each-news {
     max-width: 28%;

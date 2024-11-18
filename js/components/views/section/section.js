@@ -1,5 +1,7 @@
 console.log('andando el section.js');
 
+// 🚨 EN ESTA VISTA SE VEN TODOS LOS ARTICULOS DE UNA SOLA SECCION 🚨
+
 const sections = [
   {
     "idSeccion": 1,

@@ -1,5 +1,7 @@
 console.log('andando el newUser');
 
+// 🚨 EN ESTA VISTA EL ADMIN CREA UN NUEVO USUARIO 🚨
+
 // condicionar para registro de usuario y creacion de nuevo usuario
 
 // registro - usuario persona

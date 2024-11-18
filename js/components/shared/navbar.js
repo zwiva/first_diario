@@ -54,7 +54,7 @@ const appRoutes = [ // editar elementos
   },
   {
     "name": "+Nuevo Usuario",
-    "href": "user-create.html",
+    "href": "user-new.html",
     "type": "superadmin",
     "status": "registered",
     "color": "white"
