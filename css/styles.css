@@ -24,10 +24,11 @@ h3 {
   font-size: 1.5em;
 }
 
-.mt-05{
+.mt-05 {
   margin-top: 0.5em;
 }
-.mt-1{
+
+.mt-1 {
   margin-top: 1em;
 }
 
@@ -167,30 +168,47 @@ main {
 }
 
 .navbar-body {
-  width: 100%;
+  width: 95%;
   max-width: 1200px;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .navbar-body {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .navbar-body {
+    width: 100%;
+  }
 }
 
 .nav-item {
   color: white;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 0.9em;
+  word-break: keep-all;
+  margin: 1em;
 }
 
 .nav-item:hover {
   color: #ddd;
 }
 
-.general-item {
-  /* no va */
-  background-color: rgb(0, 110, 255);
+@media (min-width: 768px) {
+  .nav-item {
+    font-size: 1em;
+  }
 }
 
-.internal-item {
-  /* no va */
-  background-color: rgb(222, 186, 255);
+@media (min-width: 1280px) {
+  .nav-item {
+    font-size: 1.2em;
+  }
 }
 
 /* footer */

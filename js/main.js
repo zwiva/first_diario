@@ -1,33 +1,29 @@
 import { renderNavbar } from './components/shared/navbar.js';
 import { renderFooter } from './components/shared/footer.js';
-import { verifyToken } from "./utils/helpers.js";
+import { getAuthToken } from './utils/auth.js';
 
-async function detectTypeUser() {
-  
-  verifyToken(import.meta.env.JWT_SECRET)
+// function init() {
+//   const token = getAuthToken();
+//   console.log('token in main --->', token);
+// }
 
-  if (!localStorage.getItem('auth-token')) {
-    const data = localStorage.getItem('auth-token');
+// init();
 
-    // jwt.verify(data, import.meta.env.JWT_SECRET);
-    // await verifyToken(data, import.meta.env.JWT_SECRET)
-    console.log('no hay credenciales');
-
-  } else {
-
-    console.log('hay credenciales');
-  }
-
-}
+// async function detectTypeUser() {
+//   if (!localStorage.getItem('auth-token')) {
+//     const data = localStorage.getItem('auth-token');
+//     console.log('no hay credenciales');
+//   } else {
+//     console.log('hay credenciales');
+//   }
+// }
+// detectTypeUser();
 
 // Renderizar navbar en todas las páginas
 document.addEventListener("DOMContentLoaded", () => {
   renderNavbar("navbar-container");
   renderFooter("footer-container");
 });
-
-detectTypeUser();
-
 
 export function generarNoticia(param) {
   console.log('param main', param);

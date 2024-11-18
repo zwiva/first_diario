@@ -1,103 +1,150 @@
-const appRoutes = [
+import { getAuthToken } from './../../utils/auth.js';
+
+function detectRole() {
+  let idRole = 3;
+  const token = getAuthToken();
+
+  if (token != null) {
+    idRole = token.id_role;
+  }
+  idRole = 4;
+  return idRole;
+}
+
+const appRoutes = [ // editar elementos
   {
-    "home": "index.html",
-    "routeType": "shared",
+    "name": "Noticias",
+    "href": "index.html",
+    "type": "global",
+    "status": "unregistered"
   },
   {
-    "about": "nosotros.html",
-    "routeType": "general",
+    "name": "Secciones",
+    "href": "secciones.html",
+    "type": "global",
+    "status": "unregistered"
   },
   {
-    "sections": "secciones.html",
-    "routeType": "shared",
+    "name": "Registro",
+    "href": "registro.html",
+    "type": "unregistered",
+    "status": "unregistered"
   },
   {
-    "register": "registro.html",
-    "routeType": "general",
+    "name": "Login",
+    "href": "login.html",
+    "type": "unregistered",
+    "status": "unregistered"
   },
   {
-    "login": "login.html",
-    "routeType": "shared",
+    "name": "+Nuevo artículo",
+    "href": "article-new.html",
+    "type": "internal",
+    "status": "registered"
   },
   {
-    "dashboard": "dashboard.html",
-    "routeType": "shared",
-  },
-  // {
-  //   "article": "article.html",
-  //   "routeType": "shared",
-  // },
-  {
-    "articles": "article-all.html",
-    "routeType": "internal",
+    "name": "Artículos",
+    "href": "article-all.html",
+    "type": "internal",
+    "status": "registered"
   },
   {
-    "articlenew": "article-new.html",
-    "routeType": "internal",
+    "name": "+Nuevo Usuario",
+    "href": "user-create.html",
+    "type": "superadmin",
+    "status": "registered"
   },
   {
-    "articledit": "article-edit.html",
-    "routeType": "internal",
+    "name": "Usuarios",
+    "href": "user-all.html",
+    "type": "superadmin",
+    "status": "registered"
   },
   {
-    "users": "user-all.html",
-    "routeType": "internal",
-  },
-  {
-    "usernew": "user-create.html",
-    "routeType": "internal",
-  },
-  {
-    "useredit": "user-edit.html",
-    "routeType": "internal",
+    "name": "Cuenta",
+    "href": "dashboard.html",
+    "type": "premium",
+    "status": "registered"
   },
 ]
 
-
-
 export function navbarComponent() {
-
-  // condicionar de acuerdo al tipo de usuario --> sacar de localStorage
-
-  const navbar = document.createElement('nav');
-
-  
-  // <a class="nav-item general-item" href="nosotros.html">El faro</a>
-  navbar.className = "navbar";
-  navbar.innerHTML = `
-    <div class="navbar-body">
-      
-      <a class="nav-item general-item" href="index.html">Noticias</a>
-      <a class="nav-item general-item" href="secciones.html">Secciones</a>
-      <a class="nav-item general-item" href="registro.html">Registro</a>
-      <a class="nav-item general-item" href="login.html">Login</a>
-      <a class="nav-item general-item" href="dashboard.html">Cuenta</a>
-      
-      <a class="nav-item internal-item" href="article-all.html">Articulos</a>
-      <a class="nav-item internal-item" href="article-new.html">Nuevo articulo</a>
-      <a class="nav-item internal-item" href="article-edit.html">Editar articulo (no final)</a>
-      <a class="nav-item internal-item" href="user-all.html">Usuarios</a>
-      <a class="nav-item internal-item" href="user-create.html">Crear usuario</a>
-      <a class="nav-item internal-item" href="user-edit.html">Editar usuario (no final)</a>
-
-    
-      <a class="nav-item general-item closeSession">Cerrar sesion</a>
-    
-      </div>
+  const idRole = detectRole();
+  let navByRole;
+  let navString = '';
+  const topNav = ` 
+    <a class="nav-item" href="${appRoutes[0].href}">${appRoutes[0].name}</a>
+    <a class="nav-item" href="${appRoutes[1].href}">${appRoutes[1].name}</a>
   `;
 
-  navbar.querySelector('.closeSession').addEventListener('click', () => {
-    alert(`quiero cerrar`);
+  appRoutes.forEach(route => {
+
+    if (idRole === 1 && route.type == 'superadmin' || idRole === 1 && route.status == 'registered') {
+      const a = document.createElement('a');
+      a.classList = ['nav-item'];
+      a.innerHTML = route.name;
+      a.href = route.href;
+      navString += a.outerHTML;
+      navByRole = navString;
+    } else if (idRole === 2 && route.type == 'internal' || idRole === 2 && route.type == 'registered') {
+      const a = document.createElement('a');
+      a.classList = ['nav-item'];
+      a.innerHTML = route.name;
+      a.href = route.href;
+      navString += a.outerHTML;
+      navByRole = navString;
+    } else if (idRole == 3 && route.type == 'unregistered') {
+      const a = document.createElement('a');
+      a.classList = ['nav-item'];
+      a.innerHTML = route.name;
+      a.href = route.href;
+      navString += a.outerHTML;
+      navByRole = navString;
+    } else if (idRole === 4 && route.type == 'premium') {
+      const a = document.createElement('a');
+      a.classList = ['nav-item'];
+      a.innerHTML = route.name;
+      a.href = route.href;
+      navString += a.outerHTML;
+      navByRole = navString;
+    }
+
   });
 
+  const navbar = document.createElement('nav');
+  navbar.className = "navbar";
+  if (idRole == 3) {
+    navbar.innerHTML = `
+      <div class="navbar-body" id="navbar-body">
+        ${topNav}
+        ${navByRole}
+      </div>
+    `;
+  } else {
+    navbar.innerHTML = `
+      <div class="navbar-body" id="navbar-body">
+        ${topNav}
+        ${navByRole}
+        <a class="nav-item closeSession" style="color: #c587ff;">Cerrar sesion</a></div>
+      </div>
+    `;
+    navbar.querySelector('.closeSession').addEventListener('click', () => {
+      localStorage.removeItem('auth-token');
+      window.location.href = "./index.html"
+    });
+  }
   return navbar;
 }
-
 
 export function renderNavbar(containerId) {
   const container = document.getElementById(containerId);
   container.append(navbarComponent());
-  // container.innerHTML = navbarComponent();
 }
 
+// disponible
+// function init() {
+//   const token = getAuthToken();
+//   console.log('token --->', token);
+// }
 
+// init();

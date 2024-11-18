@@ -1,8 +1,18 @@
-import { getAuthToken } from '../../../utils/auth.js';
-console.log('andando el home.js');
+// import { getAuthToken } from '../../../utils/auth.js';
 
-// DEBEN LLEGAR TODAS todas las secciones (no todos los articulos)
-// DEBEN LLEGAR LOS ULTIMOS 8 articulos (truncar en db)
+// Método para desencriptar el jwt
+// function init() {
+//   const token = getAuthToken();
+//   console.log('token --->', token);
+// }
+
+// init();
+
+// IZQ: MOSTRAR 3 ARTICULOS MAS RECIENTES ( top 3 ) || 
+
+// CENTRO: MOSTRAR 3 ARTICULOS MAS RECIENTES ( top 3 ) ||
+
+// DER: MOSTRAR SECCIONES, DEBEN LLEGAR TODAS
 
 const articles = [
   {
@@ -237,14 +247,7 @@ const articles = [
     "seccion": "Educación"
   }
 ]
-// IZQ: MOSTRAR 7 ARTICULOS RANDOM ( 7 - top3 )
 
-
-
-// CENTRO: MOSTRAR 3 ARTICULOS MAS RECIENTES ( top 3 )
-
-
-// DER: MOSTRAR SECCIONES
 const sections = [
   {
     "idSeccion": 1,
@@ -340,15 +343,3 @@ sections.forEach(section => {
   allSections.appendChild(link);
 
 });
-
-// Método para desencriptar el jwt
-function init() {
-  const token = getAuthToken();
-  console.log('token --->', token);
-}
-
-init();
-
-// navbar.querySelector('.closeSession').addEventListener('click', () => {
-//   alert(`quiero cerrar`);
-// });

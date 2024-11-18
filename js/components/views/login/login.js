@@ -11,7 +11,7 @@ document.getElementById('btnlogin').addEventListener('click', async () => {
       alert('Credenciales incorrectas');
       return;
     }
-    window.location.href = "./index.html" // a todo evento redirige
+    window.location.href = "./index.html"
   } catch (error) {
     console.log('error en login: ', error);
     alert(`Error: ${error}`);
