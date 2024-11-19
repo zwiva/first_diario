@@ -2,14 +2,32 @@
 
 function detectUserId() {
   const user_id = 1;
-  // codigo para detectar el usuario
+
+  // codigo para detectar el usuario 📌
+
   return user_id
 }
 
+async function getSections() {
+
+  // traer secciones de DB 📌
+  try {
+    const result = ''
+  } catch (error) {
+    console.log('error: ', error);
+  }
+
+}
 
 const selectSections = document.getElementById("sections-create");
-function getSections() {
-  // crear selector con secciones desde db
+function setSections() {
+
+  // crear selector con secciones desde db 📌
+  try {
+    const result = ''
+  } catch (error) {
+    console.log('error: ', error);
+  }
   const sections = [ // CARGAR CON DB
     {
       name: 'primera',
@@ -39,7 +57,7 @@ function getSections() {
 
   selectSections.appendChild(select)
 }
-getSections()
+setSections()
 
 const btn = document.getElementById("save-new-article");
 btn.addEventListener('click', async function () {
@@ -124,7 +142,7 @@ btn.addEventListener('click', async function () {
 const saveArticle = async (data) => {
   console.log('guardar nuevo articulo', data)
 
-  // guardado en db
+  // guardado en db 📌
 
   return true
 }

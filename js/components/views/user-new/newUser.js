@@ -14,7 +14,7 @@ function detectUserId() { // VERIFICAR SI ES NECESARIO 📌
   const user_id = 1;
 
   // codigo para detectar el usuario 📌
-  
+
   return user_id
 }
 detectUserId()
@@ -75,9 +75,9 @@ setOptions()
 const btn = document.getElementById("create-new-user");
 btn.addEventListener('click', async function () {
 
-  const nombre = document.getElementById('usr-create-name').value; 
-  const apellido = document.getElementById('usr-create-lastname').value; 
-  const apellido2 = document.getElementById('usr-create-surname').value; 
+  const nombre = document.getElementById('usr-create-name').value;
+  const apellido = document.getElementById('usr-create-lastname').value;
+  const apellido2 = document.getElementById('usr-create-surname').value;
   const rut = document.getElementById('usr-create-rut').value;
   const correo = document.getElementById('usr-create-email').value;
   const contrasena = document.getElementById('usr-create-pass').value;
@@ -112,6 +112,11 @@ const createUser = async (data) => {
   console.log('data nuevo usuario', data)
 
   // guardado en db 📌
+  try {
+    const result = ''
+  } catch (error) {
+    console.log('error: ', error);
+  }
 
   return true
 }

@@ -1,29 +1,21 @@
 
-import { CONFIG } from './../../config/config.js';
+import { CONFIG } from '../../../config/config.js';
 
 export const getAllUsers = async () => {
-  
+
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.allUsers;
-  console.log('ejecuta getAllUsers', process);
-
-  try {
-    let response = await fetch(endpoint);
-
-    console.log('response', response);
-
-    const data = await response.json();
-    
-    console.log(data);
+  console.log('endpoint', endpoint);
 
 
-  } catch (error) {
-    console.error('There was a problem with the fetch operation:', error);
-  }
+  let response = await fetch(endpoint);
+  console.log('response', response);
+
+  const data = await response.json();
+  console.log('data', data);
+
+  console.error('There was a problem with the fetch operation:', error);
+
 }
-
-
-
-
 
 // fetch('https://jsonplaceholder.typicode.com/posts', {
 //   method: 'POST', // HTTP method
