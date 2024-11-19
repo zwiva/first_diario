@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diario Online</title>
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/views/newUser.css">
   <link rel="stylesheet" href="css/shared/form.css">
   <script defer type="module" src="js/main.js"></script>
   <script defer type="module" src="js/components/views/user-new/newUser.js"></script>
@@ -28,55 +27,45 @@
 
         <label for="" class="label-body">
           <p class="form-label">Nombre</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-create-name">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Apellido Paterno</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-create-lastname">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Apellido Materno</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-create-surname">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Rut</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-create-rut">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Email</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-create-email">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Asignar contraseña</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-create-pass">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Tipo usuario</p>
         </label>
 
-        <div for="" class="label-body">
-
-          <select name="" id="" class="form-input">
-            <option value="">Prueba</option>
-            <option value="">Premium</option>
-            <option value="">Reportero</option>
-            <option value="">Administrador</option>
-          </select>
-
+        <div for="" class="label-body" id="select-options">
         </div>
 
       </form>
 
-      <div class="btn-section">
-
-        <button class="btn" onclick="saveNewUser('intern')">Crear usuario</button>
-
+      <div class="btn-section" >
+        <button class="btn" id="create-new-user">Crear usuario</button>
       </div>
       
     </div>

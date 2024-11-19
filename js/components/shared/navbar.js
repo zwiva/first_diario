@@ -5,7 +5,7 @@ function detectRole() {
     let data = JSON.parse(localStorage.getItem('navigation'))
     idRole = data.navigation.id_role;
   }
-  
+  // idRole = 2
   return idRole;
 }
 
@@ -93,7 +93,7 @@ export function navbarComponent() {
       a.href = route.href;
       navString += a.outerHTML;
       navByRole = navString;
-    } else if (idRole === 2 && route.type == 'internal' || idRole === 2 && route.type == 'registered') {
+    } else if (idRole === 2 && route.type == 'internal') {
       const a = document.createElement('a');
       a.classList = ['nav-item'];
       a.innerHTML = route.name;

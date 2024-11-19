@@ -27,53 +27,48 @@
 
         <label for="" class="label-body">
           <p class="form-label">Nombre</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-create-name">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Apellido Paterno</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-create-lastname">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Apellido Materno</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-create-surname">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Rut</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-create-rut">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Email</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-create-email">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Asignar contraseña</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-create-pass">
         </label>
 
         <label for="" class="label-body">
-          <p class="form-label">Categoría</p>
+          <p class="form-label">Medio de pago</p>
         </label>
 
-        <div for="" class="label-body">
-
-          <select name="" id="" class="form-input">
-            <option value="">prueba</option>
-            <option value="">premium</option>
-          </select>
-
+        <div for="" class="label-body" id="select-options">
         </div>
 
+        <small style="margin:1em 0.5em; text-align: center; font-style: italic; color: rgb(167, 167, 167);">*Su cuenta
+          se activará inmediatamente, quedando así por 24 horas. <br>
+          Cumplido el plazo si no registra pago se desactivará.</small>
       </form>
 
       <div class="btn-section">
-      
-        <button class="btn" onclick="saveNewUser('registro')">Guardar</button>
-      
+        <button class="btn" id="create-new-user">Enviar</button>
       </div>
 
     </div>
@@ -81,7 +76,7 @@
   </main>
 
   <footer id="footer-container"></footer>
-  
+
 </body>
 
 </html>

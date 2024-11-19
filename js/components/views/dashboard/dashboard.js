@@ -1,26 +1,15 @@
-
-// 🚨 EN ESTA VISTA ??? 🚨
-
 function goTo(action) {
   switch (action) {
-    case 'create-article':
 
-      break;
-    case 'edit-articles':
-
-      break;
     case 'edit-account':
+      console.log('click para accion ');
 
       break;
     case 'delete-account':
+      console.log('click para accion ');
 
       break;
-    case 'create-user':
 
-      break;
-    case 'edit-users':
-
-      break;
     default:
       break;
   }
