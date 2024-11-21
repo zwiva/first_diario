@@ -19,7 +19,7 @@ export async function login(email, pass) {
 
   if (result.isSuccess) {
 
-    localStorage.setItem('auth-token', JSON.stringify({ 'auth-token': result.data.token }));
+    localStorage.setItem('authToken', JSON.stringify({ 'authToken': result.data.token }));
 
     localStorage.setItem('navigation', JSON.stringify(({
       'navigation': {
@@ -37,7 +37,7 @@ export async function login(email, pass) {
 
 export function getAuthToken() {
   // console.log('aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
-  // const authToken = localStorage.getItem('auth-token');
+  // const authToken = localStorage.getItem('authToken');
   // if (!authToken)
   //   return null;
   // return jwtDecode(authToken);

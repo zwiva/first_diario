@@ -2,24 +2,25 @@
 import { CONFIG } from '../../../config/config.js';
 
 // idRole 1
-export const getAllUsers = async () => { 
-  // GET -->
+export const getAllUsers = async (token) => {
 
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.allUsers;
   console.log('endpoint', endpoint);
 
-  let response = await fetch(endpoint);
-  console.log('response', response);
-
+  let response = await fetch(endpoint, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    }
+  })
+  
   const data = await response.json();
-  console.log('data', data);
-
-  console.error('There was a problem with the fetch operation:', error);
-
+  return data;
 }
 
 // idRole 1,3
-export async function createUser(data) { 
+export async function createUser(data) {
   // POST -->
 
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
@@ -47,7 +48,7 @@ export async function createUser(data) {
 }
 
 // idRole 1
-export async function editUser(data) { 
+export async function editUser(data) {
   // POST O PUT -->
 
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
@@ -75,7 +76,7 @@ export async function editUser(data) {
 }
 
 // idRole 1
-export async function deleteUser(data) { 
+export async function deleteUser(data) {
   // DELETE --> eliminar usuario
 
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;

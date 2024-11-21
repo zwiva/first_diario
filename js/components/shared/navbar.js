@@ -137,7 +137,7 @@ export function navbarComponent() {
       </div>
     `;
     navbar.querySelector('.closeSession').addEventListener('click', () => {
-      localStorage.removeItem('auth-token');
+      localStorage.removeItem('authToken');
       localStorage.removeItem('navigation');
       window.location.href = "./index.html"
     });

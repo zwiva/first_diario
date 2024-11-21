@@ -14,7 +14,7 @@ function getArticles() {
   }
 }
 
-function setArticles() {
+function buildView() {
 
   articles = getArticles();
   articles = [
@@ -108,4 +108,4 @@ function eliminarArticulo(id) {
 
 }
 
-setArticles() // trigger
+buildView() // trigger
