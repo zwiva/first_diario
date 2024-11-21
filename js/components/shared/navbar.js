@@ -5,7 +5,7 @@ function detectRole() {
     let data = JSON.parse(localStorage.getItem('navigation'))
     idRole = data.navigation.id_role;
   }
-  idRole = 1
+  // idRole = 1
   return idRole;
 }
 

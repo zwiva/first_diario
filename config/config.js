@@ -3,7 +3,6 @@ export const CONFIG = {
   home: `/home`,
   login: `/auth/`,
   
-  registro: `/register`,
   dashboard: `/dashboard`,
   
   allSections: `/sections`,
@@ -11,7 +10,7 @@ export const CONFIG = {
   allArticles: `/get-articles`,
   editArticle: `/edit-article`,
  
-  newUser: `/create-user`,
+  newUser: `/users`,
   allUsers: `/users/`,
   editUser: `/edit-user`
   

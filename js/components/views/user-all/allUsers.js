@@ -36,6 +36,8 @@ const buildView = async () => {
   const usuariosContainer = document.getElementById('users-container');
 
   users.forEach(user => {
+    console.log('user', user);
+    
     const userTr = document.createElement('tr');
 
     const idUser = document.createElement('td');
@@ -62,6 +64,10 @@ const buildView = async () => {
     const apellido2 = document.createElement('td');
     apellido2.innerHTML = user.surname
     userTr.appendChild(apellido2)
+
+    const correo = document.createElement('td');
+    correo.innerHTML = user.email
+    userTr.appendChild(correo)
 
     const acciones = document.createElement('td');
     acciones.style.display = "flex"
