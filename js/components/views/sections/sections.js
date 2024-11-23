@@ -1,5 +1,7 @@
 // 🚨 EN ESTA VISTA SE VEN TODAS LAS SECCIONES, DE CADA SECCION SE VEN 3 ARTICULOS siempre 🚨
 
+import { _get3LastArticlesByEachSection } from "../../../services/article/article-service.js";
+
 // DESDE EL NAVBAR
 
 function detectRole() { // detectar el tipo de rol
@@ -36,10 +38,41 @@ function showAllSections() {
   // en los elementos dependiendo del rol se muestra activo/inactivo boton para ver mas articulos de una seccion
 
   // link noticia -> function goToArticle() {// guardar en LS el articulo escogido
-  //   // localStorage.setItem('article-id')
+  //   // localStorage.setItem('full-article')
   //   // window.location.href = "./article.html"
   // }
 }
 
 
 showAllSections() // trigger
+
+
+
+async function getAllLatestOfAll() {
+  let data = []
+
+  try {
+    const response = await _get3LastArticlesByEachSection();
+
+    if (response) {
+      data = response.data;
+      console.log('result getLast: ', response.data);
+      return data
+    }
+  } catch (error) {
+    console.log('error en getAllSections: ', error);
+  }
+}
+
+async function buildLatestOfAll() { // 10 o 3
+  // CENTRO: MOSTRAR 1 ARTICULOS por seccion || max 3
+  const recentArticlesMain = document.getElementById('');
+
+  const all = await getAllLatestOfAll();
+  // function goToArticle() {// guardar en LS el articulo escogido 
+  //   // localStorage.setItem('full-article', 'djdjd')
+  //   // window.location.href = "./article.html"
+  //    }
+
+
+}

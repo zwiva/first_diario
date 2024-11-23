@@ -21,12 +21,13 @@
 }
 
 @media (min-width: 768px) {
-  .short-article--list{
+  .short-article--list {
     display: flex;
     flex-direction: column;
     margin-top: 2em;
     gap: 1em;
   }
+
   .content_section-left {
     display: block;
     width: 20%;
@@ -69,6 +70,7 @@
   flex-direction: column;
   border-bottom: 1px solid var(--hr);
   margin-bottom: 1em;
+  gap: 0.75em;
 }
 
 .article-text {

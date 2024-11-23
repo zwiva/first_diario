@@ -9,7 +9,7 @@ const getUserToken = () => {
 }
 
 // 1,2,3,4
-export const _getAllSections = async () => { // ok
+export const _getAllSections = async () => { // ok (home)
   // GET -> para traer todas las secciones y escoger una 
   const endpoint = import.meta.env.VITE_API_URL + sectionsPath;
   let response = await fetch(endpoint, {
@@ -47,10 +47,10 @@ export const _getArticle = async () => { // pendiente
 }
 
 // 1,2,3,4
-export const _get1LastArticleByEachSection = async () => { // WIP minis
+export const _get1LastArticleByEachSection = async () => { // ok (home y article)
   // GET -> traer cada section con un articulo publicado (ultimo) -> co lumna izq
 
-  const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/latest/mini/1';
+  const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/section/latest/1';
   console.log('get1LastArticleByEachSection pedido a: ', endpoint);
 
   const response = await fetch(endpoint, {
@@ -62,25 +62,29 @@ export const _get1LastArticleByEachSection = async () => { // WIP minis
   });
 
   const data = await response.json();
-  console.log('data', data);
+  // console.log('data', data);
   return data;
 }
 
 // 1,2,3,4
-export const _get3LastArticlesByEachSection = async () => { // pendiente
+export const _getAllLastsArticles = async () => { // WIP home
   // GET -> para traer todos los articulos de una seccion
 
-  const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/latest/mini/3';
+  const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/latest/10';
   console.log('get3LastArticlesByEachSection pedido a: ', endpoint);
 
-  const response = await fetch(endpoint);
+  const response = await fetch(endpoint, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${getUserToken()}`,
+      'Content-Type': 'application/json'
+    },
+  });
   console.log('response', response);
 
   const data = await response.json();
   console.log('data', data);
-
-
-
+  return data;
 }
 
 // 1,2,4
@@ -90,31 +94,39 @@ export const _getAllArticlesByOneSection = async () => { // pendiente
   const endpoint = import.meta.env.VITE_API_URL + articlesPath;
   console.log('getAllArticlesByOneSection pedido a: ', endpoint);
 
-  const response = await fetch(endpoint);
+  const response = await fetch(endpoint, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${getUserToken()}`,
+      'Content-Type': 'application/json'
+    },
+  });
   console.log('response', response);
 
   const data = await response.json();
   console.log('data', data);
-
-
-
 }
 
 // 1,2,4
-export const _get10LastArticlesOfAll = async () => { // pendiente
+export const _get3LastArticlesByEachSection = async () => { // WIP secciones
   // GET -> para traer todos los articulos de una seccion
 
   const endpoint = import.meta.env.VITE_API_URL + articlesPath;
-  console.log('get10LastArticlesOfAll pedido a: ', endpoint);
+  console.log('getLastArticlesOfAll pedido a: ', endpoint);
 
-  const response = await fetch(endpoint);
+  const response = await fetch(endpoint, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${getUserToken()}`,
+      'Content-Type': 'application/json'
+    },
+  });
+
   console.log('response', response);
 
   const data = await response.json();
   console.log('data', data);
-
-
-
+  return data
 }
 
 // 1,2
@@ -198,18 +210,22 @@ export const _deleteArticle = async (data) => { // pendiente
 }
 
 // 3
-export const _get3LastArticlesOfAll = async () => {
+export const _get3LastArticlesOfAll = async () => { // pendiente
   // GET -> traer los ultimos 3 articulos de toda la plataforma (sin escoger seccion)
 
   const endpoint = import.meta.env.VITE_API_URL + articlesPath;
   console.log('get3LastArticlesOfAll pedido a a: ', endpoint);
 
-  const response = await fetch(endpoint);
+  const response = await fetch(endpoint, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${getUserToken()}`,
+      'Content-Type': 'application/json'
+    },
+  });
   console.log('response', response);
 
   const data = await response.json();
   console.log('data', data);
-
-
 
 }

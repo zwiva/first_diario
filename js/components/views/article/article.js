@@ -51,7 +51,7 @@ async function buildShortArticlesList() {
     const link = document.createElement('a');
     link.innerHTML = 'ir a articulo';
     link.addEventListener('click', function () {
-      localStorage.setItem('short-article', JSON.stringify(shortArticle))
+      localStorage.setItem('full-article', JSON.stringify(shortArticle))
       // console.log('shortArticle', shortArticle);
     })
     link.classList = ['article_short--link']
@@ -67,7 +67,7 @@ async function buildShortArticlesList() {
 async function getArticleById() {
 
   // obtener data articulo desde LS
-  // localStorage.getItem('article-id')
+  // localStorage.getItem('full-article')
   // traer de db 📌
 
   try {

@@ -230,7 +230,7 @@ function getArticlesBySection() {
 }
 
 function goToArticle() {// guardar en LS el articulo escogido
-  // localStorage.setItem('article-id')
+  // localStorage.setItem('full-article', 'data')
   // window.location.href = "./article.html"
 }
 
