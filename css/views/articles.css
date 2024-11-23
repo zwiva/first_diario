@@ -38,6 +38,7 @@
     border-bottom: 1px solid rgb(248, 53, 248);
     display: flex;
     flex-direction: column;
+    padding: 1em;
   }
 
   .article_short--title {
@@ -189,6 +190,8 @@
 
 .article_top--title-date {
   /* background-color: blueviolet; */
+  font-style: italic;
+  margin: 0.5em
 }
 
 .article_top--img {

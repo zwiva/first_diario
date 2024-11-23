@@ -24,10 +24,12 @@ export const _getAllSections = async () => { // ok (home)
 }
 
 // 1,2,3,4
-export const _getArticle = async () => { // pendiente
+export const _getArticle = async (id) => { // pendiente
   // GET -> para traer un articulo completo
+  console.log('id', id);
+  
 
-  const endpoint = import.meta.env.VITE_API_URL + articlesPath;
+  const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/' +id;
   console.log('getArticle pedido a: ', endpoint);
 
   let response = await fetch(endpoint, {
@@ -35,15 +37,10 @@ export const _getArticle = async () => { // pendiente
     headers: {
       'Authorization': `Bearer ${getUserToken()}`,
       'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
+    }
   });
-
-  console.log('response', response);
-
   const data = await response.json();
-  console.log('data', data);
-
+  return data;
 }
 
 // 1,2,3,4
@@ -51,7 +48,7 @@ export const _get1LastArticleByEachSection = async () => { // ok (home y article
   // GET -> traer cada section con un articulo publicado (ultimo) -> co lumna izq
 
   const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/section/latest/1';
-  console.log('get1LastArticleByEachSection pedido a: ', endpoint);
+  // console.log('get1LastArticleByEachSection pedido a: ', endpoint);
 
   const response = await fetch(endpoint, {
     method: 'GET',
@@ -67,11 +64,11 @@ export const _get1LastArticleByEachSection = async () => { // ok (home y article
 }
 
 // 1,2,3,4
-export const _getAllLastsArticles = async () => { // WIP home
+export const _getAllLastsArticles = async () => { // ok
   // GET -> para traer todos los articulos de una seccion
 
   const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/latest/10';
-  console.log('get3LastArticlesByEachSection pedido a: ', endpoint);
+  // console.log('get3LastArticlesByEachSection pedido a: ', endpoint);
 
   const response = await fetch(endpoint, {
     method: 'GET',
@@ -80,10 +77,7 @@ export const _getAllLastsArticles = async () => { // WIP home
       'Content-Type': 'application/json'
     },
   });
-  console.log('response', response);
-
   const data = await response.json();
-  console.log('data', data);
   return data;
 }
 

@@ -46,7 +46,7 @@ async function buildShortArticlesList() {
     const link = document.createElement('a');
     link.innerHTML = 'ir a articulo';
     link.addEventListener('click', function () {
-      localStorage.setItem('full-article', JSON.stringify(shortArticle))
+      localStorage.setItem('article-id', shortArticle.id)
       // console.log('shortArticle', shortArticle);
     })
     link.classList = ['article_short--link']
@@ -66,7 +66,7 @@ async function getAllLatestOfAll() {
 
     if (response) {
       data = response.data;
-      console.log('result getLast----> ', response.data);
+      // console.log('result getLast----> ', response.data);
       return data
     }
   } catch (error) {
@@ -112,7 +112,7 @@ async function buildLatestOfAll() { // 10 o 3
     const link = document.createElement('a');
     link.innerHTML = 'ir a articulo';
     link.addEventListener('click', function () {
-      localStorage.setItem('full-article', JSON.stringify(article))
+      localStorage.setItem('article-id', article.id)
     })
     link.classList = ['article-link']
     link.href = 'article.html';
