@@ -34,11 +34,3 @@ export async function login(email, pass) {
 
   return result;
 }
-
-export function getAuthToken() {
-  // console.log('aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
-  // const authToken = localStorage.getItem('authToken');
-  // if (!authToken)
-  //   return null;
-  // return jwtDecode(authToken);
-}

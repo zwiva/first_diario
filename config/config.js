@@ -5,13 +5,22 @@ export const CONFIG = {
   
   dashboard: `/dashboard`,
   
-  allSections: `/sections`,
-  newArticle: `/new-article`,
-  allArticles: `/get-articles`,
-  editArticle: `/edit-article`,
- 
+  users: `/users`,
+  
   newUser: `/users`,
-  allUsers: `/users/`,
-  editUser: `/edit-user`
+  editUser: `/edit-user`, // ?
+
+  
+  sections: `/sections`, // /:id
+  
+  articles: `/articles`,
+
+  // article: `/articles/`, //:id
+  // articleLatest: `/articles/latest/`, //:num
+  // articlesBySection: `/articles/section/`, //:id
+  
+
+  newArticle: `/new-article`, // ?
+  editArticle: `/edit-article`, // ?
   
 };

@@ -2,13 +2,6 @@ import { getAllUsers } from "../../../services/user/user-service.js";
 
 // 🚨 EN ESTA VISTA SE MUESTRA TABLA CON TODOS LOS USUARIOS 🚨
 
-const getDataToken = () => {
-  const user = localStorage.getItem('authToken')
-  const token = JSON.parse(user)
-  // console.log('token---->', token.authToken);
-  return token.authToken
-}
-
 const getData = async () => {
   try {
     const token = getDataToken();

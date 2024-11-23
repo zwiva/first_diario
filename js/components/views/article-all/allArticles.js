@@ -17,30 +17,6 @@ function getArticles() {
 function buildView() {
 
   articles = getArticles();
-  articles = [
-    {
-      "id": 1,
-      "title": "El Impacto de la IA en la Medicina Moderna",
-      "urlImgPpal": "https://example.com/images/ia-medicina.jpg",
-      "resumen": "Exploramos cómo la inteligencia artificial está revolucionando la medicina, desde diagnósticos precisos hasta tratamientos personalizados.",
-      "enlaceRelacionado": "https://example.com/articulos/ia-medicina-avances",
-      "fechaPublicacion": "2024-11-01",
-      "estadoPublicacion": "publicado",
-      "idAutor": 101,
-      "secciones": "Medicina"
-    },
-    {
-      "id": 11,
-      "title": "La IA en la Educación Inclusiva",
-      "urlImgPpal": "https://example.com/images/ia-inclusiva.jpg",
-      "resumen": "Explora cómo la IA puede ayudar a crear un entorno de aprendizaje más inclusivo para estudiantes con necesidades especiales.",
-      "enlaceRelacionado": "https://example.com/articulos/ia-educacion-inclusiva",
-      "fechaPublicacion": "2024-11-07",
-      "estadoPublicacion": "publicado",
-      "idAutor": 107,
-      "seccion": "Educación"
-    }
-  ]
 
   const articulosContainer = document.getElementById('articulos-container');
   articles.forEach(articulo => {

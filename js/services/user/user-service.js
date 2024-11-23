@@ -1,16 +1,26 @@
 
 import { CONFIG } from '../../../config/config.js';
 
+
+const getUserToken = () => {
+  const user = localStorage.getItem('authToken')
+  const token = JSON.parse(user)
+  // console.log('token---->', token.authToken);
+  return token.authToken
+}
+
 // idRole 1
 export const getAllUsers = async (token) => { // OK
 
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.allUsers;
+  console.log('token', token);
+  
+  const endpoint = import.meta.env.VITE_API_URL + CONFIG.users;
   console.log('endpoint', endpoint);
 
   let response = await fetch(endpoint, {
     method: 'GET',
     headers: {
-      'Authorization': `Bearer ${token}`,
+      'Authorization': `Bearer ${getUserToken()}`,
       'Content-Type': 'application/json'
     }
   })
@@ -20,7 +30,7 @@ export const getAllUsers = async (token) => { // OK
 }
 
 // idRole 1,3
-export async function createUser(data, token) { // POST -->
+export async function createUser(data, token) { // pendiente
 
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.newUser;
   console.log('apuntando a: ', endpoint);
@@ -28,7 +38,7 @@ export async function createUser(data, token) { // POST -->
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${token}`,
+      'Authorization': `Bearer ${getUserToken()}`,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
@@ -41,7 +51,7 @@ export async function createUser(data, token) { // POST -->
 }
 
 // idRole 1
-export async function editUser(data) {
+export async function editUser(data) { // pendiente
   // POST O PUT -->
 
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
@@ -69,7 +79,7 @@ export async function editUser(data) {
 }
 
 // idRole 1
-export async function deleteUser(data) {
+export async function deleteUser(data) { // pendiente
   // DELETE --> eliminar usuario
 
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;

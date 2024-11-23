@@ -1,60 +1,77 @@
-// 1,2,3,4
-export const getAllSections = async () => { 
-  // GET -> para traer todas las secciones y escoger una 
+import { CONFIG } from "../../../config/config";
 
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.allUsers;
-  console.log('apuntando a: ', endpoint);
+const articlesPath = CONFIG.articles;
+const sectionsPath = CONFIG.sections;
 
-  let response = await fetch(endpoint);
-  console.log('response', response);
-
-  const data = await response.json();
-  console.log('data', data);
-
-  console.error('There was a problem with the fetch operation:', error);
-
+const getUserToken = () => {
+  const user = localStorage.getItem('authToken')
+  return user ? JSON.parse(user).authToken : user;
 }
 
 // 1,2,3,4
-export const getArticle = async () => { 
+export const _getAllSections = async () => { // ok
+  // GET -> para traer todas las secciones y escoger una 
+  const endpoint = import.meta.env.VITE_API_URL + sectionsPath;
+  let response = await fetch(endpoint, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${getUserToken()}`,
+      'Content-Type': 'application/json'
+    },
+  });
+  const data = await response.json();
+  return data
+}
+
+// 1,2,3,4
+export const _getArticle = async () => { // pendiente
   // GET -> para traer un articulo completo
 
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.allUsers;
-  console.log('apuntando a: ', endpoint);
+  const endpoint = import.meta.env.VITE_API_URL + articlesPath;
+  console.log('getArticle pedido a: ', endpoint);
 
-  let response = await fetch(endpoint);
+  let response = await fetch(endpoint, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${getUserToken()}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+
   console.log('response', response);
 
   const data = await response.json();
   console.log('data', data);
-
-  console.error('There was a problem with the fetch operation:', error);
 
 }
 
 // 1,2,3,4
-export const get1LastArticleByEachSection = async () => { 
-  // GET -> traer cada section con un articulo publicado (ultimo) -> columna izq
+export const _get1LastArticleByEachSection = async () => { // WIP minis
+  // GET -> traer cada section con un articulo publicado (ultimo) -> co lumna izq
 
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.allUsers;
-  console.log('apuntando a: ', endpoint);
+  const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/latest/mini/1';
+  console.log('get1LastArticleByEachSection pedido a: ', endpoint);
 
-  const response = await fetch(endpoint);
-  console.log('response', response);
+  const response = await fetch(endpoint, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${getUserToken()}`,
+      'Content-Type': 'application/json'
+    },
+  });
 
   const data = await response.json();
   console.log('data', data);
-
-  console.error('There was a problem with the fetch operation:', error);
-
+  return data;
 }
 
 // 1,2,3,4
-export const get3LastArticlesByEachSection = async () => { 
+export const _get3LastArticlesByEachSection = async () => { // pendiente
   // GET -> para traer todos los articulos de una seccion
 
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.allUsers;
-  console.log('apuntando a: ', endpoint);
+  const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/latest/mini/3';
+  console.log('get3LastArticlesByEachSection pedido a: ', endpoint);
 
   const response = await fetch(endpoint);
   console.log('response', response);
@@ -62,16 +79,16 @@ export const get3LastArticlesByEachSection = async () => {
   const data = await response.json();
   console.log('data', data);
 
-  console.error('There was a problem with the fetch operation:', error);
+
 
 }
 
 // 1,2,4
-export const getAllArticlesByOneSection = async () => { 
+export const _getAllArticlesByOneSection = async () => { // pendiente
   // GET -> para traer todos los articulos de una seccion
 
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.allUsers;
-  console.log('apuntando a: ', endpoint);
+  const endpoint = import.meta.env.VITE_API_URL + articlesPath;
+  console.log('getAllArticlesByOneSection pedido a: ', endpoint);
 
   const response = await fetch(endpoint);
   console.log('response', response);
@@ -79,16 +96,16 @@ export const getAllArticlesByOneSection = async () => {
   const data = await response.json();
   console.log('data', data);
 
-  console.error('There was a problem with the fetch operation:', error);
+
 
 }
 
 // 1,2,4
-export const get10LastArticlesOfAll = async () => { 
+export const _get10LastArticlesOfAll = async () => { // pendiente
   // GET -> para traer todos los articulos de una seccion
 
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.allUsers;
-  console.log('apuntando a: ', endpoint);
+  const endpoint = import.meta.env.VITE_API_URL + articlesPath;
+  console.log('get10LastArticlesOfAll pedido a: ', endpoint);
 
   const response = await fetch(endpoint);
   console.log('response', response);
@@ -96,12 +113,12 @@ export const get10LastArticlesOfAll = async () => {
   const data = await response.json();
   console.log('data', data);
 
-  console.error('There was a problem with the fetch operation:', error);
+
 
 }
 
 // 1,2
-export const createArticle = async (data) => { 
+export const _createArticle = async (data) => { // pendiente
   // POST -> crear articulo
 
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
@@ -129,7 +146,7 @@ export const createArticle = async (data) => {
 }
 
 // 1,2
-export const editArticle = async (data) => { 
+export const _editArticle = async (data) => { // pendiente
   // POST o PUT para editar articulo
 
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
@@ -155,7 +172,7 @@ export const editArticle = async (data) => {
 }
 
 // 1,2
-export const deleteArticle = async (data) => { 
+export const _deleteArticle = async (data) => { // pendiente
   // DELETE -->
 
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
@@ -181,11 +198,11 @@ export const deleteArticle = async (data) => {
 }
 
 // 3
-export const get3LastArticlesOfAll = async () => { 
+export const _get3LastArticlesOfAll = async () => {
   // GET -> traer los ultimos 3 articulos de toda la plataforma (sin escoger seccion)
 
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.allUsers;
-  console.log('apuntando a: ', endpoint);
+  const endpoint = import.meta.env.VITE_API_URL + articlesPath;
+  console.log('get3LastArticlesOfAll pedido a a: ', endpoint);
 
   const response = await fetch(endpoint);
   console.log('response', response);
@@ -193,6 +210,6 @@ export const get3LastArticlesOfAll = async () => {
   const data = await response.json();
   console.log('data', data);
 
-  console.error('There was a problem with the fetch operation:', error);
+
 
 }
