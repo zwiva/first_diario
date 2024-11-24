@@ -77,7 +77,7 @@ async function getArticleById() {
 
 async function buildArticle() {
   const article = await getArticleById();
-  console.log('recent xxxxxx', article);
+  // console.log('recent xxxxxx', article);
 
   const currentArticle = document.getElementById('current-article');
 
@@ -110,7 +110,7 @@ async function buildArticle() {
   const img = document.createElement('img')
   img.src = 'https://controlpublicidad.com/wp-content/uploads/2024/05/inteligencia-artificial-e-imaginacion-102327.jpg'
   img.classList = ['article_top--img-main']
-  await imgCont.appendChild(img)
+  imgCont.appendChild(img)
   articleTop.appendChild(imgCont)
 
   const summary = document.createElement('div')
@@ -129,7 +129,7 @@ async function buildArticle() {
   articleContent.classList = ['article_content']
   article.content.forEach(content => {
 
-    console.log('parag', content);
+    // console.log('parag', content);
     const articleContentEach = document.createElement('div');
     articleContentEach.classList = ['article-content--each'];
 

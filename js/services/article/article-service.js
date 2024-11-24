@@ -24,12 +24,9 @@ export const _getAllSections = async () => { // ok (home)
 }
 
 // 1,2,3,4
-export const _getArticle = async (id) => { // pendiente
+export const _getArticle = async (id) => { // ok
   // GET -> para traer un articulo completo
-  console.log('id', id);
-  
-
-  const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/' +id;
+  const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/' + id;
   console.log('getArticle pedido a: ', endpoint);
 
   let response = await fetch(endpoint, {
@@ -102,10 +99,9 @@ export const _getAllArticlesByOneSection = async () => { // pendiente
 }
 
 // 1,2,4
-export const _get3LastArticlesByEachSection = async () => { // WIP secciones
+export const _get3LastArticlesByEachSection = async () => { // ok
   // GET -> para traer todos los articulos de una seccion
-
-  const endpoint = import.meta.env.VITE_API_URL + articlesPath;
+  const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/section/latest/' + '3';
   console.log('getLastArticlesOfAll pedido a: ', endpoint);
 
   const response = await fetch(endpoint, {
@@ -115,11 +111,7 @@ export const _get3LastArticlesByEachSection = async () => { // WIP secciones
       'Content-Type': 'application/json'
     },
   });
-
-  console.log('response', response);
-
   const data = await response.json();
-  console.log('data', data);
   return data
 }
 
@@ -204,22 +196,22 @@ export const _deleteArticle = async (data) => { // pendiente
 }
 
 // 3
-export const _get3LastArticlesOfAll = async () => { // pendiente
-  // GET -> traer los ultimos 3 articulos de toda la plataforma (sin escoger seccion)
+// export const _get3LastArticlesOfAll = async () => { // pendiente
+//   // GET -> traer los ultimos 3 articulos de toda la plataforma (sin escoger seccion)
 
-  const endpoint = import.meta.env.VITE_API_URL + articlesPath;
-  console.log('get3LastArticlesOfAll pedido a a: ', endpoint);
+//   const endpoint = import.meta.env.VITE_API_URL + articlesPath;
+//   console.log('get3LastArticlesOfAll pedido a a: ', endpoint);
 
-  const response = await fetch(endpoint, {
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${getUserToken()}`,
-      'Content-Type': 'application/json'
-    },
-  });
-  console.log('response', response);
+//   const response = await fetch(endpoint, {
+//     method: 'GET',
+//     headers: {
+//       'Authorization': `Bearer ${getUserToken()}`,
+//       'Content-Type': 'application/json'
+//     },
+//   });
+//   console.log('response', response);
 
-  const data = await response.json();
-  console.log('data', data);
+//   const data = await response.json();
+//   console.log('data', data);
 
-}
+// }

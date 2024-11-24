@@ -2,9 +2,7 @@
 
 import { _get3LastArticlesByEachSection } from "../../../services/article/article-service.js";
 
-// DESDE EL NAVBAR
-
-function detectRole() { // detectar el tipo de rol
+function detectRole() {
   let idRole = 3;
 
   if (localStorage.getItem('navigation')) {
@@ -16,63 +14,134 @@ function detectRole() { // detectar el tipo de rol
   return idRole;
 }
 
-let data = []
-function getSectionsWith3Articles() {
-
-  try {
-    const result = ''
-    data = result;
-  } catch (error) {
-    console.log('error: ', error);
-  }
-
-}
-
-function showAllSections() {
-  // traer de db
-  getSectionsWith3Articles()
-  const role = detectRole();
-
-  // con el rol de usuario se piden las secciones y cada una trae 3 articulos en esta vista
-  // construir elementos que se ven en una seccion
-  // en los elementos dependiendo del rol se muestra activo/inactivo boton para ver mas articulos de una seccion
-
-  // link noticia -> function goToArticle() {// guardar en LS el articulo escogido
-  //   // localStorage.setItem('full-article')
-  //   // window.location.href = "./article.html"
-  // }
-}
-
-
-showAllSections() // trigger
-
-
 
 async function getAllLatestOfAll() {
   let data = []
-
   try {
     const response = await _get3LastArticlesByEachSection();
-
     if (response) {
       data = response.data;
-      console.log('result getLast: ', response.data);
-      return data
+      const dataOrganized = await organizeBySections(data)
+      return dataOrganized
     }
   } catch (error) {
     console.log('error en getAllSections: ', error);
   }
 }
 
+async function organizeBySections(data) {
+  const group = []
+  const groupedBySection = data.reduce((acc, item) => { // organizar por key-secciones
+    const key = item.section;
+    if (!acc[key]) {
+      acc[key] = [];
+    }
+    acc[key].push(item);
+    return acc;
+  }, {});
+
+  for (const key in groupedBySection) { // crear arreglo
+    if (groupedBySection.hasOwnProperty(key)) {
+      let each = {
+        name: key,
+        articles: groupedBySection[key]
+      }
+      // console.log('each', each);
+      group.push(each)
+    }
+  }
+  return group;
+}
+
 async function buildLatestOfAll() { // 10 o 3
   // CENTRO: MOSTRAR 1 ARTICULOS por seccion || max 3
-  const recentArticlesMain = document.getElementById('');
 
-  const all = await getAllLatestOfAll();
-  // function goToArticle() {// guardar en LS el articulo escogido 
-  //   // localStorage.setItem('full-article', 'djdjd')
-  //   // window.location.href = "./article.html"
-  //    }
+  const role = detectRole(); // para activar btn
 
+  const sections = await getAllLatestOfAll()
+  // console.log('data in ', data);
+
+  const sectionsList = document.getElementById('sections-list');
+
+  sections.forEach(section => {
+
+
+    // console.log('s', section);
+    const sectionEach = document.createElement('div');
+    sectionEach.classList = ['section_each']
+
+    const sectionTitle = document.createElement('h3')
+    sectionTitle.innerHTML = section.name;
+    sectionEach.appendChild(sectionTitle)
+
+    const sectionEachGroup = document.createElement('div')
+    sectionEachGroup.classList = ['section_each--group']
+
+    section.articles.forEach(article => {
+      // console.log('a', article);
+
+      const eachArticle = document.createElement('div')
+      eachArticle.classList = ['section_each-news']
+
+      const articleTitle = document.createElement('h4')
+      articleTitle.classList = ['section_each-news--title']
+      articleTitle.innerHTML = article.title;
+      eachArticle.appendChild(articleTitle)
+
+      const articleImg = document.createElement('img')
+      articleImg.classList = ['section_each-news--img']
+      articleImg.src = 'https://mediatek-marketing.transforms.svdcdn.com/production/posts/MediaTek-IA-2023.jpg?w=2048&h=1075&q=80&auto=format&fit=crop&dm=1688130337&s=3b56535c28f441a34db9455d64444cb7';
+      eachArticle.appendChild(articleImg)
+
+      const articleSumm = document.createElement('p')
+      articleSumm.classList = ['section_each-news--text']
+      articleSumm.innerHTML = article.summary;
+      eachArticle.appendChild(articleSumm)
+
+      const articleLink = document.createElement('div')
+      articleLink.classList = ['section_each-news--link']
+
+      const anchor = document.createElement('a');
+      anchor.addEventListener('click', function () {
+        localStorage.setItem('article-id', article.id)
+        // console.log('shortArticle', shortArticle);
+      })
+      anchor.innerHTML = 'Ir a noticia';
+      anchor.href = 'article.html';
+
+      articleLink.appendChild(anchor)
+      eachArticle.appendChild(articleLink)
+
+      sectionEachGroup.appendChild(eachArticle)
+
+    });
+
+    sectionEach.appendChild(sectionEachGroup)
+
+    const sectionEachBtn = document.createElement('div')
+    sectionEachBtn.classList = ['section_each--btn']
+
+    const btnGoSection = document.createElement('button')
+    btnGoSection.classList = role === 3 ? ['btn btn-inactive btn-go--section'] : ['btn btn-go--section'];
+    btnGoSection.innerHTML = 'Ver todos los articulos'
+
+    btnGoSection.addEventListener('click', function () {
+      localStorage.setItem('section-id', section?.articles[0]?.id_section)
+      // console.log('artic', section?.articles[0]?.id_section);
+      window.location.href = 'seccion.html'
+    })
+
+    sectionEachBtn.appendChild(btnGoSection)
+
+    sectionEach.appendChild(sectionEachBtn)
+
+    sectionsList.appendChild(sectionEach)
+  });
 
 }
+
+function buildView() {
+  buildLatestOfAll()
+}
+
+buildView()
