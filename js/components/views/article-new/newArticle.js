@@ -51,7 +51,7 @@ function setSections() {
     const option = document.createElement('option')
     option.value = section.id
     option.textContent = section.name
-    console.log('option', option);
+    // console.log('option', option);
     select.appendChild(option);
   })
 

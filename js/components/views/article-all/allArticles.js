@@ -1,50 +1,55 @@
-console.log('andando allArticles.js');
+import { _getAllArticles } from "../../../services/article/article-service.js";
 
 // 🚨 EN ESTA VISTA SE MUESTRA UNA TABLA CON TODOS LOS ARTICULOS CREADOS 🚨
 
-let articles = []
-
-function getArticles() {
+async function getArticles() {
   // traer articulos de db 📌
   try {
-    const result = ''
-    return result
+    const result = await _getAllArticles()
+    // console.log('re', result.data);
+    return result.data
   } catch (error) {
     console.log('error: ', error);
   }
 }
 
-function buildView() {
+async function buildView() {
 
-  articles = getArticles();
+  let articles = await getArticles();
 
   const articulosContainer = document.getElementById('articulos-container');
   articles.forEach(articulo => {
-    const articuloTr = document.createElement('tr');
     // console.log('articulo', articulo);
+
+    const articuloTr = document.createElement('tr');
 
     const titulo = document.createElement('td');
     titulo.innerHTML = articulo.title
     articuloTr.appendChild(titulo)
 
     const seccion = document.createElement('td');
-    seccion.innerHTML = articulo.secciones
+    seccion.innerHTML = articulo.section
     articuloTr.appendChild(seccion)
 
     const autor = document.createElement('td');
-    autor.innerHTML = articulo.idAutor
+    autor.innerHTML = articulo.author
     autor.style.textAlign = 'center';
     articuloTr.appendChild(autor)
 
+    const estadoPublicacion = document.createElement('td');
+    estadoPublicacion.innerHTML = articulo.status
+    estadoPublicacion.style.textAlign = 'center';
+    articuloTr.appendChild(estadoPublicacion)
+
     const fechaPublicacion = document.createElement('td');
-    fechaPublicacion.innerHTML = articulo.fechaPublicacion
+    fechaPublicacion.innerHTML = articulo.createdDate.split('T')[0]
     fechaPublicacion.style.textAlign = 'center';
     articuloTr.appendChild(fechaPublicacion)
 
-    const estadoPublicacion = document.createElement('td');
-    estadoPublicacion.innerHTML = articulo.estadoPublicacion
-    estadoPublicacion.style.textAlign = 'center';
-    articuloTr.appendChild(estadoPublicacion)
+    const fechaEdicion = document.createElement('td');
+    fechaEdicion.innerHTML = articulo.updateDate.split('T')[0]
+    fechaEdicion.style.textAlign = 'center';
+    articuloTr.appendChild(fechaEdicion)
 
     const acciones = document.createElement('td');
     acciones.style.display = "flex"

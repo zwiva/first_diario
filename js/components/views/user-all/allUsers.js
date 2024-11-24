@@ -1,11 +1,10 @@
-import { getAllUsers } from "../../../services/user/user-service.js";
+import { _getAllUsers } from "../../../services/user/user-service.js";
 
 // 🚨 EN ESTA VISTA SE MUESTRA TABLA CON TODOS LOS USUARIOS 🚨
 
 const getData = async () => {
   try {
-    const token = getDataToken();
-    const response = await getAllUsers(token);
+    const response = await _getAllUsers();
 
     if (!response?.isSuccess) {
       console.log('Error', error.message);
@@ -29,8 +28,7 @@ const buildView = async () => {
   const usuariosContainer = document.getElementById('users-container');
 
   users.forEach(user => {
-    console.log('user', user);
-    
+    // console.log('user', user);
     const userTr = document.createElement('tr');
 
     const idUser = document.createElement('td');

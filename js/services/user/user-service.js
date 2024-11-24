@@ -1,7 +1,6 @@
 
 import { CONFIG } from '../../../config/config.js';
 
-
 const getUserToken = () => {
   const user = localStorage.getItem('authToken')
   const token = JSON.parse(user)
@@ -10,13 +9,9 @@ const getUserToken = () => {
 }
 
 // idRole 1
-export const getAllUsers = async (token) => { // OK
-
-  console.log('token', token);
-  
+export const _getAllUsers = async () => { // OK  
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.users;
-  console.log('endpoint', endpoint);
-
+  // console.log('endpoint', endpoint);
   let response = await fetch(endpoint, {
     method: 'GET',
     headers: {
@@ -30,7 +25,7 @@ export const getAllUsers = async (token) => { // OK
 }
 
 // idRole 1,3
-export async function createUser(data, token) { // pendiente
+export async function _createUser(data, token) { // pendiente
 
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.newUser;
   console.log('apuntando a: ', endpoint);
@@ -51,7 +46,7 @@ export async function createUser(data, token) { // pendiente
 }
 
 // idRole 1
-export async function editUser(data) { // pendiente
+export async function _editUser(data) { // pendiente
   // POST O PUT -->
 
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
@@ -79,7 +74,7 @@ export async function editUser(data) { // pendiente
 }
 
 // idRole 1
-export async function deleteUser(data) { // pendiente
+export async function _deleteUser(data) { // pendiente
   // DELETE --> eliminar usuario
 
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;

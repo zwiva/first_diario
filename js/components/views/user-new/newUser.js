@@ -1,4 +1,4 @@
-import { createUser } from "./../../../services/user/user-service.js";
+import { _createUser } from "./../../../services/user/user-service.js";
 // 🚨 EN ESTA SECCION SE CREA UN NUEVO USUARIO: via admin o registro 🚨
 
 let idRole = 3;
@@ -21,7 +21,7 @@ function setOptions() { // roles o medios de pago, depende de usuario
 
   idRole = detectUser()[0]
 
-  console.log('role en setOptions', idRole);
+  // console.log('role en setOptions', idRole);
 
   if (idRole === 3) {
     options = [

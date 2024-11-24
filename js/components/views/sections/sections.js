@@ -9,7 +9,7 @@ function detectRole() {
     let data = JSON.parse(localStorage.getItem('navigation'))
     idRole = data.navigation.id_role;
   }
-  console.log('idRole', idRole);
+  // console.log('idRole', idRole);
   // idRole = 2
   return idRole;
 }
@@ -64,8 +64,6 @@ async function buildLatestOfAll() { // 10 o 3
   const sectionsList = document.getElementById('sections-list');
 
   sections.forEach(section => {
-
-
     // console.log('s', section);
     const sectionEach = document.createElement('div');
     sectionEach.classList = ['section_each']
@@ -79,7 +77,6 @@ async function buildLatestOfAll() { // 10 o 3
 
     section.articles.forEach(article => {
       // console.log('a', article);
-
       const eachArticle = document.createElement('div')
       eachArticle.classList = ['section_each-news']
 
@@ -130,11 +127,17 @@ async function buildLatestOfAll() { // 10 o 3
       // console.log('artic', section?.articles[0]?.id_section);
       window.location.href = 'seccion.html'
     })
-
     sectionEachBtn.appendChild(btnGoSection)
-
+    if (role === 3) {
+      const msg = document.createElement('p')
+      msg.innerHTML = '*Debe estar registrado';
+      msg.style.display = 'flex'
+      msg.style.justifyContent = 'flex-end'
+      msg.style.fontSize = '0.8em'
+      msg.style.color = 'gray'
+      sectionEachBtn.appendChild(msg)
+    }
     sectionEach.appendChild(sectionEachBtn)
-
     sectionsList.appendChild(sectionEach)
   });
 
