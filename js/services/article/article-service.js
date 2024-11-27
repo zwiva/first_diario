@@ -27,8 +27,7 @@ export const _getAllSections = async () => { // ok (home)
 export const _getArticle = async (id) => { // ok
   // GET -> para traer un articulo completo
   const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/' + id;
-  console.log('getArticle pedido a: ', endpoint);
-
+  // console.log('getArticle pedido a: ', endpoint);
   let response = await fetch(endpoint, {
     method: 'GET',
     headers: {
@@ -43,10 +42,8 @@ export const _getArticle = async (id) => { // ok
 // 1,2,3,4
 export const _get1LastArticleByEachSection = async () => { // ok (home y article)
   // GET -> traer cada section con un articulo publicado (ultimo) -> co lumna izq
-
   const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/section/latest/1';
   // console.log('get1LastArticleByEachSection pedido a: ', endpoint);
-
   const response = await fetch(endpoint, {
     method: 'GET',
     headers: {
@@ -54,7 +51,6 @@ export const _get1LastArticleByEachSection = async () => { // ok (home y article
       'Content-Type': 'application/json'
     },
   });
-
   const data = await response.json();
   // console.log('data', data);
   return data;
@@ -63,10 +59,8 @@ export const _get1LastArticleByEachSection = async () => { // ok (home y article
 // 1,2,3,4
 export const _getAllLastsArticles = async () => { // ok
   // GET -> para traer todos los articulos de una seccion
-
   const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/latest/10';
   // console.log('get3LastArticlesByEachSection pedido a: ', endpoint);
-
   const response = await fetch(endpoint, {
     method: 'GET',
     headers: {
@@ -75,17 +69,15 @@ export const _getAllLastsArticles = async () => { // ok
     },
   });
   const data = await response.json();
-  console.log('data', data);
+  // console.log('data', data);
   return data;
 }
 
 // 1,2,4
 export const _getAllArticles = async () => { // ok
   // GET -> para traer todos los articulos de una seccion
-
   const endpoint = import.meta.env.VITE_API_URL + articlesPath;
-  console.log('getAll pedido a: ', endpoint);
-
+  // console.log('getAll pedido a: ', endpoint);
   const response = await fetch(endpoint, {
     method: 'GET',
     headers: {
@@ -101,8 +93,7 @@ export const _getAllArticles = async () => { // ok
 export const _get3LastArticlesByEachSection = async () => { // ok
   // GET -> para traer todos los articulos de una seccion
   const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/section/latest/' + '3';
-  console.log('getLastArticlesOfAll pedido a: ', endpoint);
-
+  // console.log('getLastArticlesOfAll pedido a: ', endpoint);
   const response = await fetch(endpoint, {
     method: 'GET',
     headers: {
@@ -117,10 +108,8 @@ export const _get3LastArticlesByEachSection = async () => { // ok
 // 1,2,4
 export const _getArticlesBySection = async (id) => { // ok
   // GET -> para traer todos los articulos de una seccion
-
   const endpoint = import.meta.env.VITE_API_URL + articlesPath + '/section/' + id;
-  console.log('getAll pedido a: ', endpoint);
-
+  // console.log('getAll pedido a: ', endpoint);
   const response = await fetch(endpoint, {
     method: 'GET',
     headers: {
@@ -133,10 +122,10 @@ export const _getArticlesBySection = async (id) => { // ok
 }
 
 // 1,2
-export const _createArticle = async (data) => { // pendiente
+export const _createArticle = async (data) => { // ok
   // POST -> crear articulo
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.articles;
-  console.log('apuntando a: ', endpoint);
+  // console.log('apuntando a: ', endpoint);
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
@@ -146,80 +135,46 @@ export const _createArticle = async (data) => { // pendiente
     body: JSON.stringify(data)
   });
   const result = await response.json();
-  console.log('result en create article', result);
+  // console.log('result en create article', result);
   return result;
 
 }
 
 // 1,2
-export const _editArticle = async (data) => { // pendiente
+export const _editArticle = async (id, data) => { // ok
   // POST o PUT para editar articulo
-
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
-  console.log('apuntando a: ', endpoint);
-
+  const endpoint = import.meta.env.VITE_API_URL + CONFIG.articles + '/' + id;
+  // console.log('apuntando a: ', endpoint);
   const response = await fetch(endpoint, {
-    method: 'POST',
+    method: 'PUT',
     headers: {
+      'Authorization': `Bearer ${getUserToken()}`,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
   });
-
-  if (response.ok) {
-    const result = await response.json();
-    alert('articulo actualizado correctamente.');
-    // Opcional: Redirigir o actualizar la interfaz
-  } else {
-    const error = await response.json();
-    alert('Error al actualizar el articulo: ' + error.message);
-  }
-
+  const result = await response.json();
+  // console.log('result en create article', result);
+  return result;
 }
 
 // 1,2
-export const _deleteArticle = async (data) => { // pendiente
+export const _deleteArticle = async (id) => { // pendiente
   // DELETE -->
+  console.log('id eliminar', id);
 
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
+  const endpoint = import.meta.env.VITE_API_URL + CONFIG.articles + '/' + id;
   console.log('apuntando a: ', endpoint);
 
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
+      'Authorization': `Bearer ${getUserToken()}`,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(data)
+    // body: JSON.stringify(data)
   });
-
-  if (response.ok) {
-    const result = await response.json();
-    alert('articulo actualizado correctamente.');
-    // Opcional: Redirigir o actualizar la interfaz
-  } else {
-    const error = await response.json();
-    alert('Error al actualizar el articulo: ' + error.message);
-  }
-
+  const result = await response.json();
+  console.log('result en delete article', result);
+  return result;
 }
-
-// 3
-// export const _get3LastArticlesOfAll = async () => { // pendiente
-//   // GET -> traer los ultimos 3 articulos de toda la plataforma (sin escoger seccion)
-
-//   const endpoint = import.meta.env.VITE_API_URL + articlesPath;
-//   console.log('get3LastArticlesOfAll pedido a a: ', endpoint);
-
-//   const response = await fetch(endpoint, {
-//     method: 'GET',
-//     headers: {
-//       'Authorization': `Bearer ${getUserToken()}`,
-//       'Content-Type': 'application/json'
-//     },
-//   });
-//   console.log('response', response);
-
-//   const data = await response.json();
-//   console.log('data', data);
-
-// }

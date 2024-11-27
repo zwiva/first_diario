@@ -11,7 +11,7 @@ async function getShortArticlesList() {
     const response = await _get1LastArticleByEachSection();
     if (response) {
       data = response.data;
-      data.sort((a, b) => b.id - a.id)
+      data.sort((a, b) => a.id - b.id)
       // console.log('result getShortArticlesList: ', response.data);
       return data
     }
@@ -108,7 +108,7 @@ async function buildArticle() {
   imgCont.classList = ['article_top--img']
 
   const img = document.createElement('img')
-  img.src = 'https://controlpublicidad.com/wp-content/uploads/2024/05/inteligencia-artificial-e-imaginacion-102327.jpg'
+  img.src = article.img;
   img.classList = ['article_top--img-main']
   imgCont.appendChild(img)
   articleTop.appendChild(imgCont)
@@ -141,7 +141,7 @@ async function buildArticle() {
 
     const articleContentImg = document.createElement('img');
     articleContentImg.classList = ['article-content--img']
-    articleContentImg.src = 'https://controlpublicidad.com/wp-content/uploads/2024/05/inteligencia-artificial-e-imaginacion-102327.jpg'
+    articleContentImg.src = content.img
 
     articleContentEach.appendChild(articleContentImg)
     articleContent.appendChild(articleContentEach)

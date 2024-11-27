@@ -63,9 +63,9 @@ async function getAllLatestOfAll() {
 
   try {
     const response = await _getAllLastsArticles();
-
     if (response) {
       data = response.data;
+      data.sort((a, b) => b.id - a.id)
       // console.log('result getLast----> ', response.data);
       return data
     }

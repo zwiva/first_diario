@@ -87,7 +87,7 @@ async function buildLatestOfAll() { // 10 o 3
 
       const articleImg = document.createElement('img')
       articleImg.classList = ['section_each-news--img']
-      articleImg.src = 'https://mediatek-marketing.transforms.svdcdn.com/production/posts/MediaTek-IA-2023.jpg?w=2048&h=1075&q=80&auto=format&fit=crop&dm=1688130337&s=3b56535c28f441a34db9455d64444cb7';
+      articleImg.src = article.img;
       eachArticle.appendChild(articleImg)
 
       const articleSumm = document.createElement('p')

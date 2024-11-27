@@ -48,16 +48,16 @@ btn.addEventListener('click', async function () {
   const titulo = document.getElementById('art-create-title').value; //
   const urlMain = document.getElementById('art-create-img-main').value; //
   const resumen = document.getElementById('art-create-summary').value; //
-  const par1 = document.getElementById('art-create-p1').value;
-  const url1 = document.getElementById('art-create-img-1').value;
-  const par2 = document.getElementById('art-create-p2').value;
-  const url2 = document.getElementById('art-create-img-2').value;
-  const par3 = document.getElementById('art-create-p3').value;
-  const url3 = document.getElementById('art-create-img-3').value;
-  const par4 = document.getElementById('art-create-p4').value;
-  const url4 = document.getElementById('art-create-img-4').value;
-  const par5 = document.getElementById('art-create-p5').value;
-  const url5 = document.getElementById('art-create-img-5').value;
+  const par1 = document.getElementById('art-create-p1').value || '';
+  const url1 = document.getElementById('art-create-img-1').value || '';
+  const par2 = document.getElementById('art-create-p2').value || '';
+  const url2 = document.getElementById('art-create-img-2').value || '';
+  const par3 = document.getElementById('art-create-p3').value || '';
+  const url3 = document.getElementById('art-create-img-3').value || '';
+  const par4 = document.getElementById('art-create-p4').value || '';
+  const url4 = document.getElementById('art-create-img-4').value || '';
+  const par5 = document.getElementById('art-create-p5').value || '';
+  const url5 = document.getElementById('art-create-img-5').value || '';
   const enlace = document.getElementById('art-create-link').value; //
   const seccion = document.getElementById('art-create-section').value; //
 
@@ -120,6 +120,7 @@ btn.addEventListener('click', async function () {
     document.getElementById('art-create-p5').value = '';
     document.getElementById('art-create-img-5').value = '';
     document.getElementById('art-create-link').value = '';
+    window.location.href="./article-all.html"
   }
 
 });

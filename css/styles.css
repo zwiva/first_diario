@@ -116,8 +116,6 @@ h3 {
   --btn-text: white;
   --btn-text-hov: blueviolet;
   --nav-item--accent: #c587ff;
-  /* --color-texto-principal: #333333; */
-  /* --color-fondo: #f5f5f5; */
 }
 
 /* body */
@@ -272,26 +270,14 @@ main {
   pointer-events: none;
 }
 
-/* for use */
-@media (max-width: 480px) {
-  body {
-    /* background-color: blue; */
-  }
-}
-
-@media (min-width: 768px) {
-  body {
-    /* background-color: yellow; */
-  }
-}
-
-@media (min-width: 1280px) {
-  body {
-    /* background-color: green; */
-  }
-}
-
 .advertising_h300 {
   height: 300px;
   background-color: rgb(243, 243, 243);
 }
+
+/* for use */
+@media (max-width: 480px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 1280px) {}

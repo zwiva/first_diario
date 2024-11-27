@@ -7,8 +7,7 @@ async function getArticles() {
   try {
     const result = await _getAllArticles()
     // console.log('re', result.data);
-
-    result.data.sort((a, b) => b.id - a.id)
+    result.data.sort((a, b) => a.id - b.id) // ordenado por id
     return result.data
   } catch (error) {
     console.log('error: ', error);
@@ -25,6 +24,10 @@ async function buildView() {
 
     const articuloTr = document.createElement('tr');
 
+    const id = document.createElement('td');
+    id.innerHTML = articulo.id
+    articuloTr.appendChild(id)
+
     const titulo = document.createElement('td');
     titulo.innerHTML = articulo.title
     articuloTr.appendChild(titulo)
@@ -33,15 +36,19 @@ async function buildView() {
     seccion.innerHTML = articulo.section
     articuloTr.appendChild(seccion)
 
+    const idseccion = document.createElement('td');
+    idseccion.innerHTML = articulo.id_section
+    articuloTr.appendChild(idseccion)
+
     const autor = document.createElement('td');
-    autor.innerHTML = articulo.author
+    autor.innerHTML = articulo.id_user
     autor.style.textAlign = 'center';
     articuloTr.appendChild(autor)
 
-    const estadoPublicacion = document.createElement('td');
-    estadoPublicacion.innerHTML = articulo.status
-    estadoPublicacion.style.textAlign = 'center';
-    articuloTr.appendChild(estadoPublicacion)
+    // const estadoPublicacion = document.createElement('td');
+    // estadoPublicacion.innerHTML = articulo.status
+    // estadoPublicacion.style.textAlign = 'center';
+    // articuloTr.appendChild(estadoPublicacion)
 
     const fechaPublicacion = document.createElement('td');
     fechaPublicacion.innerHTML = articulo.createdDate.split('T')[0]
@@ -66,9 +73,8 @@ async function buildView() {
 
     const btnEdit = document.getElementById(`editar-articulo-${articulo.id}`)
     btnEdit.addEventListener('click', function () {
-      console.log('editar articulo', articulo.id);
-      const articuloString = JSON.stringify(articulo)
-      localStorage.setItem('article-edit', articuloString)
+      // console.log('editar articulo', articulo.id);
+      localStorage.setItem('article-id-edit', articulo.id)
       window.location.href = "./article-edit.html"
     })
 
