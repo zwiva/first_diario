@@ -25,7 +25,8 @@ export async function login(email, pass) {
       'navigation': {
         'id_role': result.data.id_role,
         'name': result.data.name,
-        'lastname': result.data.name
+        'lastname': result.data.lastname,
+        'id_user': result.data.id_user
       }
     })))
   } else {

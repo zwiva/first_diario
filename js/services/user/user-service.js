@@ -19,29 +19,39 @@ export const _getAllUsers = async () => { // OK
       'Content-Type': 'application/json'
     }
   })
-
   const data = await response.json();
   return data;
 }
 
 // idRole 1,3
-export async function _createUser(data, token) { // pendiente
+export async function _createUser(role, data) { // pendiente
+  console.log('data user----->', data);
+  if (role == 3) {
+    const endpoint = import.meta.env.VITE_API_URL +CONFIG.register;
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    const result = await response.json();
+    return result
+  } else {
+    const endpoint = import.meta.env.VITE_API_URL + CONFIG.users;
+    // console.log('apuntando a: ', endpoint);
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${getUserToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    const result = await response.json();
+    return result
+  }
 
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.newUser;
-  console.log('apuntando a: ', endpoint);
-
-  const response = await fetch(endpoint, {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${getUserToken()}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  });
-
-  const result = await response.json();
-  console.log('result', result);
-  return result
 
 }
 
@@ -55,6 +65,7 @@ export async function _editUser(data) { // pendiente
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
+      'Authorization': `Bearer ${getUserToken()}`,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
@@ -76,27 +87,18 @@ export async function _editUser(data) { // pendiente
 // idRole 1
 export async function _deleteUser(data) { // pendiente
   // DELETE --> eliminar usuario
-
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
   console.log('apuntando a: ', endpoint);
-
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
+      'Authorization': `Bearer ${getUserToken()}`,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
   });
-
   const result = await response.json();
-
   console.log('result', result);
-
-  if (result.isSuccess) {
-    // si se crea bien el usuario 
-
-  } else {
-
-  }
+  return result
 
 }

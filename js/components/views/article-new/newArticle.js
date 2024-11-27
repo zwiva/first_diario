@@ -1,48 +1,32 @@
 // 🚨 EN ESTA VISTA SE CREA UN NUEVO ARTICULO 🚨
 
+import { _createArticle, _getAllSections } from "../../../services/article/article-service";
+
 function detectUserId() {
-  const user_id = 1;
-
-  // codigo para detectar el usuario 📌
-
-  return user_id
+  let userId = '';
+  if (localStorage.getItem('navigation')) {
+    let user = JSON.parse(localStorage.getItem('navigation'))
+    userId = user.navigation.id_user;
+  }
+  // console.log('token---->', token.authToken);
+  return userId
 }
 
 async function getSections() {
-
-  // traer secciones de DB 📌
+  let data = [];
   try {
-    const result = ''
+    const result = await _getAllSections();
+    console.log('result', result);
+    data = result.data;
   } catch (error) {
     console.log('error: ', error);
   }
-
+  return data;
 }
 
-const selectSections = document.getElementById("sections-create");
-function setSections() {
-
-  // crear selector con secciones desde db 📌
-  try {
-    const result = ''
-  } catch (error) {
-    console.log('error: ', error);
-  }
-  const sections = [ // CARGAR CON DB
-    {
-      name: 'primera',
-      id: 1
-    },
-    {
-      name: 'segunda',
-      id: 2
-    },
-    {
-      name: 'tercera',
-      id: 3
-    }
-  ]
-
+async function setSections() {
+  const selectSections = document.getElementById("sections-create");
+  const sections = await getSections();
   const select = document.createElement('select');
   select.classList = ['form-input']
   select.id = 'art-create-section'
@@ -57,7 +41,6 @@ function setSections() {
 
   selectSections.appendChild(select)
 }
-setSections()
 
 const btn = document.getElementById("save-new-article");
 btn.addEventListener('click', async function () {
@@ -85,7 +68,6 @@ btn.addEventListener('click', async function () {
     summary: resumen,
     urlRecomend: enlace,
     id_section: parseInt(seccion),
-    id_status: 1, // activo
     content: [
       {
         position: 1,
@@ -115,9 +97,13 @@ btn.addEventListener('click', async function () {
     ]
   };
 
+  console.log('data article ', dataArticle);
+
   const result = await saveArticle(dataArticle);
 
-  if (result) {
+  console.log('result', result);
+
+  if (result.isSuccess) {
     console.log('limpiar formulario');
     dataArticle = {};
     document.getElementById('art-create-title').value = '';
@@ -134,54 +120,21 @@ btn.addEventListener('click', async function () {
     document.getElementById('art-create-p5').value = '';
     document.getElementById('art-create-img-5').value = '';
     document.getElementById('art-create-link').value = '';
-    document.getElementById('art-create-section').value = '';
   }
 
 });
 
 const saveArticle = async (data) => {
-  console.log('guardar nuevo articulo', data)
-
-  // guardado en db 📌
-
-  return true
+  try {
+    const response = await _createArticle(data)
+    return response;
+  } catch (error) {
+    console.log('error', error);
+  }
 }
 
+function buildView() {
+  setSections()
+}
 
-
-// let dataArticle = {
-//   id_user: detectUserId(),
-//   title: "",
-//   img: "",
-//   summary: "",
-//   urlRecomend: "",
-//   id_section: "",
-//   id_status: 1, // activo
-//   content: [
-//     {
-//       position: 1,
-//       paragraph: "",
-//       img: "",
-//     },
-//     {
-//       position: 2,
-//       paragraph: "",
-//       img: "",
-//     },
-//     {
-//       position: 3,
-//       paragraph: "",
-//       img: "",
-//     },
-//     {
-//       position: 4,
-//       paragraph: "",
-//       img: "",
-//     },
-//     {
-//       position: 5,
-//       paragraph: "",
-//       img: "",
-//     }
-//   ]
-// };
+buildView()

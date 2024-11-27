@@ -75,6 +75,7 @@ export const _getAllLastsArticles = async () => { // ok
     },
   });
   const data = await response.json();
+  console.log('data', data);
   return data;
 }
 
@@ -134,28 +135,19 @@ export const _getArticlesBySection = async (id) => { // ok
 // 1,2
 export const _createArticle = async (data) => { // pendiente
   // POST -> crear articulo
-
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
+  const endpoint = import.meta.env.VITE_API_URL + CONFIG.articles;
   console.log('apuntando a: ', endpoint);
-
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
+      'Authorization': `Bearer ${getUserToken()}`,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
   });
-
   const result = await response.json();
-
-  console.log('result', result);
-
-  if (result.isSuccess) {
-    // si se crea bien el usuario 
-
-  } else {
-
-  }
+  console.log('result en create article', result);
+  return result;
 
 }
 

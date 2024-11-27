@@ -7,6 +7,8 @@ async function getArticles() {
   try {
     const result = await _getAllArticles()
     // console.log('re', result.data);
+
+    result.data.sort((a, b) => b.id - a.id)
     return result.data
   } catch (error) {
     console.log('error: ', error);
@@ -47,7 +49,7 @@ async function buildView() {
     articuloTr.appendChild(fechaPublicacion)
 
     const fechaEdicion = document.createElement('td');
-    fechaEdicion.innerHTML = articulo.updateDate.split('T')[0]
+    fechaEdicion.innerHTML = articulo.updateDate?.split('T')[0] || '-';
     fechaEdicion.style.textAlign = 'center';
     articuloTr.appendChild(fechaEdicion)
 

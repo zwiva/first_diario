@@ -72,12 +72,6 @@ function setOptions() { // roles o medios de pago, depende de usuario
 
 }
 
-const loginAndRedirect = () => {
-  console.log('debe redireccionar a index y loguearlo');
-
-  // window.location.href = 'index.html'
-}
-
 // boton ejecuta envio
 const btn = document.getElementById("create-new-user");
 btn.addEventListener('click', async function () {
@@ -99,20 +93,17 @@ btn.addEventListener('click', async function () {
     rut: rut,
     email: correo,
     pass: contrasena,
-    id_role: tipoUsuario
+    id_role: Number(tipoUsuario)
   };
 
+  console.log('data user xxxx: ', dataUser );
+  
   try {
-
-    const result = await createUser(dataUser, token); // true o false
+    const result = await _createUser(idRole,dataUser); // true o false
 
     if (!result.isSuccess) {
       console.log('result ohno!: ', result);
-      
     } else {
-      console.log('result ok:', result);
-
-      console.log('limpiar formulario');
       dataUser = {};
       document.getElementById('usr-create-name').value = '';
       document.getElementById('usr-create-lastname').value = '';
@@ -121,8 +112,7 @@ btn.addEventListener('click', async function () {
       document.getElementById('usr-create-email').value = '';
       document.getElementById('usr-create-pass').value = '';
       if (idRole === 3) {
-        
-        loginAndRedirect()
+        window.location.href = 'login.html'
       } else {
         window.location.href = 'user-all.html'
       }
