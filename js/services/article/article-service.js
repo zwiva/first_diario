@@ -154,27 +154,20 @@ export const _editArticle = async (id, data) => { // ok
     body: JSON.stringify(data)
   });
   const result = await response.json();
-  // console.log('result en create article', result);
   return result;
 }
 
 // 1,2
-export const _deleteArticle = async (id) => { // pendiente
+export const _deleteArticle = async (id) => { // ok
   // DELETE -->
-  console.log('id eliminar', id);
-
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.articles + '/' + id;
-  console.log('apuntando a: ', endpoint);
-
   const response = await fetch(endpoint, {
-    method: 'POST',
+    method: 'DELETE',
     headers: {
       'Authorization': `Bearer ${getUserToken()}`,
       'Content-Type': 'application/json'
     },
-    // body: JSON.stringify(data)
   });
   const result = await response.json();
-  console.log('result en delete article', result);
   return result;
 }

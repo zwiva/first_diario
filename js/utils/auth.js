@@ -1,4 +1,3 @@
-
 import { CONFIG } from './../../config/config.js';
 
 export async function login(email, pass) {

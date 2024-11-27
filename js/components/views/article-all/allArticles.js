@@ -1,12 +1,10 @@
-import { _getAllArticles } from "../../../services/article/article-service.js";
+import { _deleteArticle, _getAllArticles } from "../../../services/article/article-service.js";
 
 // 🚨 EN ESTA VISTA SE MUESTRA UNA TABLA CON TODOS LOS ARTICULOS CREADOS 🚨
 
 async function getArticles() {
-  // traer articulos de db 📌
   try {
     const result = await _getAllArticles()
-    // console.log('re', result.data);
     result.data.sort((a, b) => a.id - b.id) // ordenado por id
     return result.data
   } catch (error) {
@@ -85,16 +83,13 @@ async function buildView() {
   });
 }
 
-function eliminarArticulo(id) {
-  console.log('eliminar articulo', id);
-
-  // comunicar con db para eliminar 📌
+async function eliminarArticulo(id) {
   try {
-    const result = ''
+    const result = await _deleteArticle(id);
+    window.location.href = './article-all.html'
   } catch (error) {
     console.log('error: ', error);
   }
-
 }
 
 buildView() // trigger
