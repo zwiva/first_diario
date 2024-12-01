@@ -171,8 +171,8 @@ function buildView() {
 // }
 
 const idRole = detectRole()
-if (idRole !== 3 || idRole !== 4) {
-  buildView();
-} else {
+if (idRole == 3 || idRole == 4) {
   window.location.href = 'index.html'
+} else {
+  buildView();
 }

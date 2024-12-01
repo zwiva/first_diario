@@ -156,23 +156,25 @@ const saveArticle = async (data) => {
 }
 
 function buildView() {
-  const idRole = detectRole();
-  if (idRole !== 3) {
-    drawForm()
-    setSections()
-  }
+  // const idRole = detectRole();
+  // if (idRole !== 3) {
+  drawForm()
+  setSections()
+  // }
 }
 
-// function showStatus() {
-//   const section = document.getElementById('action-section');
-//   const h3 = document.createElement('h3')
-//   h3.innerHTML = '🔒 app inactiva 🔒'
-//   section.appendChild(h3)
-// }
+function showStatus() {
+  const section = document.getElementById('action-section');
+  const h3 = document.createElement('h3')
+  h3.innerHTML = '🔒 app inactiva 🔒'
+  section.appendChild(h3)
+}
 
 const idRole = detectRole()
-if (idRole !== 3 || idRole !== 4) {
-  buildView();
-} else {
+console.log('idRole', idRole);
+
+if (idRole == 3 || idRole == 4) {
   window.location.href = 'index.html'
+} else {
+  buildView();
 }
