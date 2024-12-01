@@ -1,6 +1,18 @@
+import { CONFIG } from "../../../../config/config.js";
 import { _deleteArticle, _getAllArticles } from "../../../services/article/article-service.js";
 
 // 🚨 EN ESTA VISTA SE MUESTRA UNA TABLA CON TODOS LOS ARTICULOS CREADOS 🚨
+
+function detectRole() {
+  let idRole = 3;
+
+  if (localStorage.getItem('navigation')) {
+    let data = JSON.parse(localStorage.getItem('navigation'))
+    idRole = data.navigation.id_role;
+  }
+
+  return idRole;
+}
 
 async function getArticles() {
   try {
@@ -88,7 +100,7 @@ async function eliminarArticulo(id) {
     try {
       const result = await _deleteArticle(id);
       console.log('res', result);
-      if(result.isSuccess){
+      if (result.isSuccess) {
         window.location.href = './article-all.html'
       }
     } catch (error) {
@@ -97,4 +109,9 @@ async function eliminarArticulo(id) {
   }
 }
 
-buildView() // trigger
+const idRole = detectRole();
+if (idRole !== 3) {
+  buildView();
+} else {
+  window.location.href = 'index.html'
+}

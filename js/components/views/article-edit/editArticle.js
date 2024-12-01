@@ -1,6 +1,18 @@
 // 🚨 EN ESTA VISTA SE EDITA UN ARTICULO 🚨
 
+import { CONFIG } from "../../../../config/config";
 import { _editArticle, _getAllSections, _getArticle } from "../../../services/article/article-service";
+
+function detectRole() {
+  let idRole = 3;
+
+  if (localStorage.getItem('navigation')) {
+    let data = JSON.parse(localStorage.getItem('navigation'))
+    idRole = data.navigation.id_role;
+  }
+
+  return idRole;
+}
 
 let sections = [];
 function detectUserId() {
@@ -82,15 +94,19 @@ async function setArticleDataInView() {
   document.getElementById('art-edit-img-5').value = articleData.content[4]?.img || '';
   document.getElementById('art-edit-link').value = articleData.urlRecomend;
   document.getElementById('art-edit-section').value = articleData.id_section;
-  const button = document.getElementById('edit-article');
-  button.addEventListener('click', editArticle)
+  const section = document.getElementById('actions-section')
+  const btn = document.createElement('button')
+  btn.classList = ['btn']
+  btn.innerHTML = 'Editar artículo'
+  btn.addEventListener('click', editArticle)
+  section.appendChild(btn)
 }
 
 async function editArticle() {
 
   let contentEdit = []
   for (let index = 1; index < 6; index++) {
-    if (document.getElementById(`art-edit-p${index}`).value ) {
+    if (document.getElementById(`art-edit-p${index}`).value) {
       contentEdit.push(
         {
           position: `${index}`,
@@ -140,7 +156,6 @@ function clearForm() {
   document.getElementById('art-edit-p5').value = '';
   document.getElementById('art-edit-img-5').value = '';
   document.getElementById('art-edit-link').value = '';
-  // document.getElementById('art-edit-section').value = arti;
 }
 
 function buildView() {
@@ -148,4 +163,16 @@ function buildView() {
   setArticleDataInView()
 }
 
-buildView()
+// function showStatus() {
+//   const section = document.getElementById('actions-section');
+//   const h3 = document.createElement('h3')
+//   h3.innerHTML = '🔒 app inactiva 🔒'
+//   section.appendChild(h3)
+// }
+
+const idRole = detectRole()
+if (idRole !== 3) {
+  buildView();
+} else {
+  window.location.href = 'index.html'
+}

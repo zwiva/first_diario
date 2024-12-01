@@ -1,3 +1,4 @@
+import { CONFIG } from "../../../../config/config.js";
 import { _getAllSections, _get1LastArticleByEachSection, _getAllLastsArticles } from "../../../services/article/article-service.js";
 // 🚨 vista principal 🚨
 
@@ -163,4 +164,15 @@ async function buildView() {
   await buildShortArticlesList()
 }
 
-buildView() // trigger
+function showStatus() {
+  const section = document.getElementById('recent-article-list');
+  const h3 = document.createElement('h3')
+  h3.innerHTML = '🔒 app inactiva 🔒'
+  section.appendChild(h3)
+}
+
+if (CONFIG.status) {
+  buildView();
+} else {
+  showStatus();
+}

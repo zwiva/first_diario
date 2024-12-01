@@ -1,15 +1,13 @@
 function detectRole() {
   let idRole = 3;
-
   if (localStorage.getItem('navigation')) {
     let data = JSON.parse(localStorage.getItem('navigation'))
     idRole = data.navigation.id_role;
   }
-  // idRole = 1
   return idRole;
 }
 
-const appRoutes = [ // editar elementos
+const appRoutes = [
   {
     "name": "Noticias",
     "href": "index.html",
@@ -84,7 +82,7 @@ export function navbarComponent() {
     <a class="nav-item" href="${appRoutes[1].href}">${appRoutes[1].name}</a>
   `;
 
-  appRoutes.forEach(route => {
+  appRoutes?.forEach(route => {
 
     if (idRole === 1 && route.type == 'superadmin' || idRole === 1 && route.status == 'registered' && route.type !== 'premium') {
       const a = document.createElement('a');
@@ -137,8 +135,7 @@ export function navbarComponent() {
       </div>
     `;
     navbar.querySelector('.closeSession').addEventListener('click', () => {
-      localStorage.removeItem('authToken');
-      localStorage.removeItem('navigation');
+      localStorage.clear();
       window.location.href = "./index.html"
     });
   }

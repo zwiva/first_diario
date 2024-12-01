@@ -5,5 +5,6 @@ export const CONFIG = {
   users: `/users`,
   sections: `/sections`,
   articles: `/articles`,
-  register: '/auth/register'
+  register: '/auth/register',
+  status: false
 };

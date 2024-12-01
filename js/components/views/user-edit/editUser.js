@@ -2,15 +2,26 @@
 
 import { _editUser } from "../../../services/user/user-service";
 
-function detectUserId() {
-  let userId = '';
+function detectRole() {
+  let idRole = 3;
+
   if (localStorage.getItem('navigation')) {
-    let user = JSON.parse(localStorage.getItem('navigation'))
-    userId = user.navigation.id_user;
+    let data = JSON.parse(localStorage.getItem('navigation'))
+    idRole = data.navigation.id_role;
   }
-  // console.log('token---->', token.authToken);
-  return userId
+
+  return idRole;
 }
+
+// function detectUserId() {
+//   let userId = '';
+//   if (localStorage.getItem('navigation')) {
+//     let user = JSON.parse(localStorage.getItem('navigation'))
+//     userId = user.navigation.id_user;
+//   }
+//   // console.log('token---->', token.authToken);
+//   return userId
+// }
 
 function getUserData() {
   const data = localStorage.getItem('user-edit');
@@ -125,4 +136,9 @@ function buildView() {
   setUserDataInView()
 }
 
-buildView()
+const idRole = detectRole()
+if (idRole !== 3) {
+  buildView();
+} else {
+  window.location.href = 'index.html'
+}

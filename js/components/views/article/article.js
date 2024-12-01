@@ -1,7 +1,9 @@
+import { CONFIG } from "../../../../config/config.js";
 import { _getArticle, _getAllSections, _get1LastArticleByEachSection } from "../../../services/article/article-service.js";
 // DESDE VISTA HOME
 // DESDE VISTA SECCION
 // DESDE VISTA SECCIONES
+console.log('status --->', CONFIG.status);
 
 // 🚨 EN ESTA VISTA SE VE ARTICULO COMPLETO 🚨
 
@@ -161,4 +163,15 @@ async function buildView() {
   await buildArticle();
 }
 
-buildView();
+function showStatus() {
+  const section = document.getElementById('current-article');
+  const h3 = document.createElement('h3')
+  h3.innerHTML = '🔒 app inactiva 🔒'
+  section.appendChild(h3)
+}
+
+if (CONFIG.status) {
+  buildView();
+} else {
+  showStatus();
+}

@@ -1,3 +1,4 @@
+import { CONFIG } from "../../../../config/config.js";
 import { _getAllSections, _getArticlesBySection } from "../../../services/article/article-service.js";
 // DESDE VISTA HOME
 // DESDE VISTA SECCIONES
@@ -33,53 +34,80 @@ async function getSections() {
 async function buildView() {
 
   const sections = await getSections();
-  const seccion = sections.filter(section => section.id == localStorage.getItem('section-id')); // DINAMIZAR
+  // console.log('sections', sections);
 
-  const tituloSeccion = document.getElementById('title-section-one');
-  tituloSeccion.innerHTML = seccion[0].name
+  const seccion = sections.filter(section => section.id == localStorage.getItem('section-id'));
+  // console.log('seccion', seccion);
+  if (seccion.length == 1) {
 
-  const descripcionSeccion = document.getElementById('section-description-one');
-  descripcionSeccion.innerHTML = seccion[0].description
+    const tituloSeccion = document.getElementById('title-section-one');
+    tituloSeccion.innerHTML = seccion[0].name
 
-  const articulosContainer = document.getElementById('articles-by-section');
+    const descripcionSeccion = document.getElementById('section-description-one');
+    descripcionSeccion.innerHTML = seccion[0].description
 
-  const articlesBySection = await getArticlesBySectionId();
+    const articulosContainer = document.getElementById('articles-by-section');
 
-  articlesBySection.forEach(articulo => {
-    const eachArticle = document.createElement('div');
-    eachArticle.classList = ['section_each-news'];
+    const articlesBySection = await getArticlesBySectionId();
+    console.log('articlesBySection', articlesBySection);
 
-    const title = document.createElement('h4')
-    title.classList = ['section_each-news--title']
-    title.innerHTML = articulo.title
-    eachArticle.appendChild(title)
+    if (articlesBySection.length > 0) {
+      articlesBySection.forEach(articulo => {
+        const eachArticle = document.createElement('div');
+        eachArticle.classList = ['section_each-news'];
 
-    const img = document.createElement('img')
-    img.classList = ['section_each-news--img']
-    img.src = articulo.img
-    eachArticle.appendChild(img)
+        const title = document.createElement('h4')
+        title.classList = ['section_each-news--title']
+        title.innerHTML = articulo.title
+        eachArticle.appendChild(title)
 
-    const p = document.createElement('p')
-    p.classList = ['section_each-news--text']
-    p.innerHTML = articulo.summary
-    eachArticle.appendChild(p)
+        const img = document.createElement('img')
+        img.classList = ['section_each-news--img']
+        img.src = articulo.img
+        eachArticle.appendChild(img)
 
-    const link = document.createElement('div')
-    link.classList = ['section_each-news--link']
+        const p = document.createElement('p')
+        p.classList = ['section_each-news--text']
+        p.innerHTML = articulo.summary
+        eachArticle.appendChild(p)
 
-    const anchor = document.createElement('a');
-    anchor.addEventListener('click', function () {
-      localStorage.setItem('article-id', articulo.id)
-      // console.log('shortArticle', shortArticle);
-    })
-    anchor.innerHTML = 'Ir a noticia';
-    anchor.href = 'article.html';
+        const link = document.createElement('div')
+        link.classList = ['section_each-news--link']
 
-    link.appendChild(anchor)
-    eachArticle.appendChild(link)
+        const anchor = document.createElement('a');
+        anchor.addEventListener('click', function () {
+          localStorage.setItem('article-id', articulo.id)
+          // console.log('shortArticle', shortArticle);
+        })
+        anchor.innerHTML = 'Ir a noticia';
+        anchor.href = 'article.html';
 
-    articulosContainer.appendChild(eachArticle);
-  });
+        link.appendChild(anchor)
+        eachArticle.appendChild(link)
+
+        articulosContainer.appendChild(eachArticle);
+      });
+    } else {
+      const message = document.createElement('h3')
+      message.innerHTML = 'No hay artículos disponibles en esta sección.'
+      message.style.color='#ff007e'
+      articulosContainer.appendChild(message);
+    }
+  } else {
+    window.location.href = "index.html"
+  }
 }
 
-buildView()
+function setStatus() {
+  const section2 = document.getElementById('articles-by-section');
+  const h3 = document.createElement('p');
+  h3.style.fontWeight = 'bold'
+  h3.innerHTML = '🔒 app inactiva 🔒';
+  section2.appendChild(h3)
+}
+
+if (CONFIG.status) {
+  buildView();
+} else {
+  setStatus();
+}

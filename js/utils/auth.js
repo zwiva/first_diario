@@ -33,4 +33,5 @@ export async function login(email, pass) {
   }
 
   return result;
+
 }

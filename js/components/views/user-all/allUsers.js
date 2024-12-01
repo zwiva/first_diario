@@ -1,11 +1,24 @@
+import { CONFIG } from "../../../../config/config.js";
 import { _deleteUser, _getAllUsers } from "../../../services/user/user-service.js";
 
 // 🚨 EN ESTA VISTA SE MUESTRA TABLA CON TODOS LOS USUARIOS 🚨
 
+
+function detectRole() {
+  let idRole = 3;
+
+  if (localStorage.getItem('navigation')) {
+    let data = JSON.parse(localStorage.getItem('navigation'))
+    idRole = data.navigation.id_role;
+  }
+  // console.log('idRole', idRole);
+  // idRole = 2
+  return idRole;
+}
+
 const getData = async () => {
   try {
     const response = await _getAllUsers();
-
     if (!response?.isSuccess) {
       console.log('Error en getData: ', error.message);
       return;
@@ -97,7 +110,13 @@ async function eliminarUsuario(id) {
       console.log('error en eliminarUsuario: ', error);
     }
   }
-
 }
 
-buildView() // trigger
+// if (CONFIG.status) {
+  const idRole = detectRole()
+  if (idRole !== 3) {
+    buildView();
+  } else {
+    window.location.href = 'index.html'
+  }
+// }

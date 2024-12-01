@@ -1,5 +1,6 @@
 // 🚨 EN ESTA VISTA SE VEN TODAS LAS SECCIONES, DE CADA SECCION SE VEN 3 ARTICULOS siempre 🚨
 
+import { CONFIG } from "../../../../config/config.js";
 import { _get3LastArticlesByEachSection } from "../../../services/article/article-service.js";
 
 function detectRole() {
@@ -9,11 +10,9 @@ function detectRole() {
     let data = JSON.parse(localStorage.getItem('navigation'))
     idRole = data.navigation.id_role;
   }
-  // console.log('idRole', idRole);
-  // idRole = 2
+
   return idRole;
 }
-
 
 async function getAllLatestOfAll() {
   let data = []
@@ -148,4 +147,15 @@ function buildView() {
   buildLatestOfAll()
 }
 
-buildView()
+function showStatus() {
+  const section = document.getElementById('sections-list');
+  const h3 = document.createElement('h3')
+  h3.innerHTML = '🔒 app inactiva 🔒'
+  section.appendChild(h3)
+}
+
+if (CONFIG.status) {
+  buildView();
+} else {
+  showStatus();
+}
