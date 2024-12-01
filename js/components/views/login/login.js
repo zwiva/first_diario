@@ -3,7 +3,7 @@ import { login } from './../../../utils/auth';
 
 document.getElementById('btnlogin').addEventListener('click', async () => {
 
-  if (CONFIG.status) {
+  if (CONFIG.active) {
     const username = document.getElementById('user').value;
     const password = document.getElementById('pass').value;
   

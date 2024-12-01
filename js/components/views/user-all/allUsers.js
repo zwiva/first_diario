@@ -112,11 +112,11 @@ async function eliminarUsuario(id) {
   }
 }
 
-// if (CONFIG.status) {
+// if (CONFIG.active) {
   const idRole = detectRole()
-  if (idRole !== 3) {
-    buildView();
-  } else {
+  if (idRole !== 1) {
     window.location.href = 'index.html'
+  } else {
+    buildView();
   }
 // }

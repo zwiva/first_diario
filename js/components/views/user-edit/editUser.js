@@ -137,8 +137,8 @@ function buildView() {
 }
 
 const idRole = detectRole()
-if (idRole !== 3) {
-  buildView();
-} else {
+if (idRole !== 1) {
   window.location.href = 'index.html'
+} else {
+  buildView();
 }

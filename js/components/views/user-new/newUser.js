@@ -2,7 +2,7 @@ import { CONFIG } from "../../../../config/config.js";
 import { _createUser } from "./../../../services/user/user-service.js";
 // 🚨 EN ESTA SECCION SE CREA UN NUEVO USUARIO: via admin o registro 🚨
 
-let idRole = 3;
+let idRole = detectRole();
 
 function detectRole() {
   let idRole = 3;
@@ -11,9 +11,12 @@ function detectRole() {
     let data = JSON.parse(localStorage.getItem('navigation'))
     idRole = data.navigation.id_role;
   }
+  console.log('idRole', idRole);
 
   return idRole;
 }
+
+detectRole()
 
 function setOptions() { // roles o medios de pago, depende de usuario
   const selectOptions = document.getElementById("select-options");
@@ -149,8 +152,15 @@ function setStatus() {
   section2.appendChild(h3)
 }
 
-if (CONFIG.status) {
-  buildView();
+console.log('role', idRole);
+
+
+if (idRole !== 4 || idRole !== 2) {
+  if (CONFIG.active) {
+    buildView();
+  } else {
+    setStatus();
+  }
 } else {
-  setStatus();
+  window.location.href = 'index.html'
 }

@@ -110,7 +110,7 @@ async function eliminarArticulo(id) {
 }
 
 const idRole = detectRole();
-if (idRole !== 3) {
+if (idRole !== 3 || idRole !== 4 ) {
   buildView();
 } else {
   window.location.href = 'index.html'

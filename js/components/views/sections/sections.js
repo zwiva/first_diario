@@ -154,7 +154,7 @@ function showStatus() {
   section.appendChild(h3)
 }
 
-if (CONFIG.status) {
+if (CONFIG.active) {
   buildView();
 } else {
   showStatus();

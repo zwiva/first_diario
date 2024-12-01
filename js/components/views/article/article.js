@@ -3,7 +3,7 @@ import { _getArticle, _getAllSections, _get1LastArticleByEachSection } from "../
 // DESDE VISTA HOME
 // DESDE VISTA SECCION
 // DESDE VISTA SECCIONES
-console.log('status --->', CONFIG.status);
+console.log('status --->', CONFIG.active);
 
 // 🚨 EN ESTA VISTA SE VE ARTICULO COMPLETO 🚨
 
@@ -170,7 +170,7 @@ function showStatus() {
   section.appendChild(h3)
 }
 
-if (CONFIG.status) {
+if (CONFIG.active) {
   buildView();
 } else {
   showStatus();
