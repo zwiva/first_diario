@@ -120,7 +120,7 @@ async function buildLatestOfAll() { // 10 o 3
 
     const btnGoSection = document.createElement('button')
     btnGoSection.classList = role === 3 ? ['btn btn-inactive btn-go--section'] : ['btn btn-go--section'];
-    btnGoSection.innerHTML = 'Ver todos los articulos'
+    btnGoSection.innerHTML = 'Ver todos los artículos'
 
     btnGoSection.addEventListener('click', function () {
       localStorage.setItem('section-id', section?.articles[0]?.id_section)
@@ -130,11 +130,12 @@ async function buildLatestOfAll() { // 10 o 3
     sectionEachBtn.appendChild(btnGoSection)
     if (role === 3) {
       const msg = document.createElement('p')
-      msg.innerHTML = '*Debe estar registrado';
+      msg.innerHTML = '⛔ Debe estar registrado ⛔';
       msg.style.display = 'flex'
       msg.style.justifyContent = 'flex-end'
       msg.style.fontSize = '0.8em'
       msg.style.color = 'gray'
+      msg.style.margin = '0.5em'
       sectionEachBtn.appendChild(msg)
     }
     sectionEach.appendChild(sectionEachBtn)

@@ -126,7 +126,7 @@ async function buildArticle() {
   currentArticle.appendChild(hr)
 
   const articleContent = document.createElement('div') // CONTENEDOR
-  articleContent.classList = ['article_content']
+  articleContent.classList = ['article-content']
   article.content.forEach(content => {
 
     // console.log('parag', content);
@@ -150,6 +150,10 @@ async function buildArticle() {
 
   currentArticle.appendChild(articleContent)
 
+  const urlExternal = document.createElement('p')
+  urlExternal.style.textAlign = 'center';
+  urlExternal.innerHTML = `Referencia: ${article.urlRecomend}`;
+  currentArticle.appendChild(urlExternal)
 }
 
 async function buildView() {

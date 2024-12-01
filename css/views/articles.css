@@ -194,7 +194,7 @@
 }
 
 .article_top--img-main {
-  width: 100%;
+  width: 75%;
 }
 
 .article_top--summ {
@@ -207,13 +207,13 @@
   margin: 2.75em;
 }
 
-.article_content {
+.article-content {
   display: flex;
   flex-direction: column;
-  margin: 1em;
+  margin: 1em 0;
 }
 
-.article_content--each {
+.article-content--each {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -222,7 +222,7 @@
 .article-content--img {
   width: 90%;
   align-self: center;
-  margin: 2.5em;
+  margin: 2.5em 0;
 }
 
 .article-content--text {
@@ -235,6 +235,9 @@
 }
 
 @media (min-width: 768px) {
+  .article-content {
+    margin: 1em;
+  }
 }
 
 @media (min-width: 1280px) {

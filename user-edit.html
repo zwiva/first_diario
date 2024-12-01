@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diario Online</title>
+  <title>El faroIA🗞️</title>
+  <link rel="icon" type="image/x-icon" href="./assets/images/image-13.png">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/views/newUser.css">
   <link rel="stylesheet" href="css/shared/form.css">
@@ -21,52 +22,49 @@
 
     <!-- PENDIENTE: -->
     <div class="form-section">
-      
+
       <h2 class="title_section">Editar usuario</h2>
 
       <form action="" class="medium_form">
 
+        <div class="label-body" style="flex-direction: row;">
+          <p class="form-label">id usuario: </p>
+          <p style="margin-left: 0.5em; color: black;" id="usr-edit-id"></p>
+        </div>
+
         <label for="" class="label-body">
           <p class="form-label">Nombre</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-edit-name">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Apellido Paterno</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-edit-lastname">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Apellido Materno</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-edit-surname">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Rut</p>
-          <input type="text" class="form-input">
+          <input type="text" class="form-input" id="usr-edit-rut">
         </label>
 
         <label for="" class="label-body">
           <p class="form-label">Tipo usuario</p>
         </label>
 
-        <div for="" class="label-body">
-
-          <select name="" id="" class="form-input">
-            <option value="">Prueba</option>
-            <option value="">Premium</option>
-            <option value="">Reportero</option>
-            <option value="">Administrador</option>
-          </select>
-
+        <div for="" class="label-body" id="sections-edit">
         </div>
 
       </form>
 
       <div class="btn-section">
-      
-        <button class="btn" onclick="editUser()">Editar usuario</button>
-      
+
+        <button class="btn" id="edit-user">Editar usuario</button>
+
       </div>
 
     </div>

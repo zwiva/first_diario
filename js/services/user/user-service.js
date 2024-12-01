@@ -24,9 +24,9 @@ export const _getAllUsers = async () => { // OK
 }
 
 // idRole 1,3
-export async function _createUser(role, data) { // pendiente
+export async function _createUser(role, data) { // ok
   // console.log('data user----->', data);
-  if (role == 3) {
+  if (role == 3) { // registrp
     const endpoint = import.meta.env.VITE_API_URL + CONFIG.register;
     const response = await fetch(endpoint, {
       method: 'POST',
@@ -37,7 +37,7 @@ export async function _createUser(role, data) { // pendiente
     });
     const result = await response.json();
     return result
-  } else {
+  } else { // crear
     const endpoint = import.meta.env.VITE_API_URL + CONFIG.users;
     // console.log('apuntando a: ', endpoint);
     const response = await fetch(endpoint, {
@@ -51,17 +51,15 @@ export async function _createUser(role, data) { // pendiente
     const result = await response.json();
     return result
   }
-
-
 }
 
 // idRole 1
-export async function _editUser(data) { // pendiente
+export async function _editUser(id, data) { // ok
   // POST O PUT -->
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
+  const endpoint = import.meta.env.VITE_API_URL + CONFIG.users + '/' + id;
   // console.log('apuntando a: ', endpoint);
   const response = await fetch(endpoint, {
-    method: 'POST',
+    method: 'PUT',
     headers: {
       'Authorization': `Bearer ${getUserToken()}`,
       'Content-Type': 'application/json'
@@ -73,20 +71,18 @@ export async function _editUser(data) { // pendiente
 }
 
 // idRole 1
-export async function _deleteUser(data) { // pendiente
+export async function _deleteUser(id) { // pendiente
   // DELETE --> eliminar usuario
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
+  const endpoint = import.meta.env.VITE_API_URL + CONFIG.users + '/' + id;
   // console.log('apuntando a: ', endpoint);
   const response = await fetch(endpoint, {
-    method: 'POST',
+    method: 'DELETE',
     headers: {
       'Authorization': `Bearer ${getUserToken()}`,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(data)
   });
   const result = await response.json();
-  // console.log('result', result);
   return result
 
 }

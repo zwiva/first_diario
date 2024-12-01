@@ -86,7 +86,7 @@ export function navbarComponent() {
 
   appRoutes.forEach(route => {
 
-    if (idRole === 1 && route.type == 'superadmin' || idRole === 1 && route.status == 'registered') {
+    if (idRole === 1 && route.type == 'superadmin' || idRole === 1 && route.status == 'registered' && route.type !== 'premium') {
       const a = document.createElement('a');
       a.classList = ['nav-item'];
       a.innerHTML = route.name;
@@ -149,11 +149,3 @@ export function renderNavbar(containerId) {
   const container = document.getElementById(containerId);
   container.append(navbarComponent());
 }
-
-// disponible
-// function init() {
-//   const token = getAuthToken();
-//   console.log('token --->', token);
-// }
-
-// init();

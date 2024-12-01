@@ -1,4 +1,4 @@
-import { _getAllUsers } from "../../../services/user/user-service.js";
+import { _deleteUser, _getAllUsers } from "../../../services/user/user-service.js";
 
 // 🚨 EN ESTA VISTA SE MUESTRA TABLA CON TODOS LOS USUARIOS 🚨
 
@@ -83,14 +83,12 @@ const buildView = async () => {
       eliminarUsuario(user.id)
     })
   });
-
 }
 
-function eliminarUsuario(id) {
-  // console.log('eliminar usuario', id);
-  // comunicar con db para eliminar 📌 (invocar servicio)
+async function eliminarUsuario(id) {
   try {
-    const result = ''
+    const result = await _deleteUser(id); 
+    window.location.href = './user-all.html'
   } catch (error) {
     console.log('error en eliminarUsuario: ', error);
   }

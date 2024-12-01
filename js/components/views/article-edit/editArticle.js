@@ -45,7 +45,7 @@ async function getSections() {
 async function setSections() {
   const selectSections = document.getElementById("sections-edit");
   sections = await getSections();
-  // console.log('sectionsss', sections);
+  console.log('sectionsss', sections);
 
   const select = document.createElement('select');
   select.classList = ['form-input']
