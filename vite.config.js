@@ -20,5 +20,24 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['jwt-decode']
-  }
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        main: 'index.html', // Página principal
+        'article-all': 'article-all.html', // Otra vista
+        'article-edit': 'article-edit.html',
+        'article-new': 'article-new.html',
+        'article': 'article.html',
+        dashboard: 'dashboard.html',
+        login: 'login.html',
+        registro: 'registro.html',
+        seccion: 'seccion.html',
+        secciones: 'secciones.html',
+        'user-all': 'user-all.html', // Otra vista
+        'user-edit': 'user-edit.html', // Otra vista
+        'user-new': 'user-new.html', // Otra vista
+      },
+    },
+  },
 });
