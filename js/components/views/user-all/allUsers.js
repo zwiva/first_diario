@@ -32,7 +32,7 @@ const buildView = async () => {
     const userTr = document.createElement('tr');
 
     const idUser = document.createElement('td');
-    idUser.innerHTML = user.id_user
+    idUser.innerHTML = user.id
     userTr.appendChild(idUser)
 
     const rol = document.createElement('td');
@@ -65,23 +65,23 @@ const buildView = async () => {
     acciones.style.justifyContent = "space-around"
 
     acciones.innerHTML = `
-    <button id="editar-usuario-${user.id_user}">Editar</button>
-    <button id="eliminar-usuario-${user.id_user}">Eliminar</button>`
+    <button id="editar-usuario-${user.id}">Editar</button>
+    <button id="eliminar-usuario-${user.id}">Eliminar</button>`
     userTr.appendChild(acciones)
 
     usuariosContainer.appendChild(userTr);
 
-    const btnEdit = document.getElementById(`editar-usuario-${user.id_user}`)
+    const btnEdit = document.getElementById(`editar-usuario-${user.id}`)
     btnEdit.addEventListener('click', function () {
-      console.log('editar usuario', user.id_user);
+      console.log('editar usuario', user.id);
       const usuarioString = JSON.stringify(user)
       localStorage.setItem('user-edit', usuarioString)
       window.location.href = "./user-edit.html"
     })
 
-    const btnDelete = document.getElementById(`eliminar-usuario-${user.id_user}`)
+    const btnDelete = document.getElementById(`eliminar-usuario-${user.id}`)
     btnDelete.addEventListener('click', function () {
-      eliminarUsuario(user.id_user)
+      eliminarUsuario(user.id)
     })
   });
 

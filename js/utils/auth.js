@@ -25,7 +25,7 @@ export async function login(email, pass) {
         'id_role': result.data.id_role,
         'name': result.data.name,
         'lastname': result.data.lastname,
-        'id_user': result.data.id_user
+        'id_user': result.data.id
       }
     })))
   } else {

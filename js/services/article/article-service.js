@@ -1,4 +1,4 @@
-import { CONFIG } from "../../../config/config";
+import { CONFIG } from "../../../config/config.js";
 
 const articlesPath = CONFIG.articles;
 const sectionsPath = CONFIG.sections;
