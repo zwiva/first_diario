@@ -86,12 +86,18 @@ const buildView = async () => {
 }
 
 async function eliminarUsuario(id) {
-  try {
-    const result = await _deleteUser(id); 
-    window.location.href = './user-all.html'
-  } catch (error) {
-    console.log('error en eliminarUsuario: ', error);
+  if (confirm(`Estas seguro de eliminar a idUsuario: ${id}`)) {
+    try {
+      const result = await _deleteUser(id);
+      console.log('res', result);
+      if (result.isSuccess) {
+        window.location.href = './user-all.html'
+      }
+    } catch (error) {
+      console.log('error en eliminarUsuario: ', error);
+    }
   }
+
 }
 
 buildView() // trigger

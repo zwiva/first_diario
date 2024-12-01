@@ -84,11 +84,16 @@ async function buildView() {
 }
 
 async function eliminarArticulo(id) {
-  try {
-    const result = await _deleteArticle(id);
-    window.location.href = './article-all.html'
-  } catch (error) {
-    console.log('error el eliminarArticulo: ', error);
+  if (confirm(`Estas seguro de eliminar el idArtículo: ${id}`)) {
+    try {
+      const result = await _deleteArticle(id);
+      console.log('res', result);
+      if(result.isSuccess){
+        window.location.href = './article-all.html'
+      }
+    } catch (error) {
+      console.log('error el eliminarArticulo: ', error);
+    }
   }
 }
 

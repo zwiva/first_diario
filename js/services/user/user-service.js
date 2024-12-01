@@ -73,16 +73,20 @@ export async function _editUser(id, data) { // ok
 // idRole 1
 export async function _deleteUser(id) { // pendiente
   // DELETE --> eliminar usuario
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.users + '/' + id;
-  // console.log('apuntando a: ', endpoint);
-  const response = await fetch(endpoint, {
-    method: 'DELETE',
-    headers: {
-      'Authorization': `Bearer ${getUserToken()}`,
-      'Content-Type': 'application/json'
-    },
-  });
-  const result = await response.json();
-  return result
-
+  console.log('id', id);
+  if (id !== 1) {
+    const endpoint = import.meta.env.VITE_API_URL + CONFIG.users + '/' + id;
+    // console.log('apuntando a: ', endpoint);
+    const response = await fetch(endpoint, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${getUserToken()}`,
+        'Content-Type': 'application/json'
+      },
+    });
+    const result = await response.json();
+    return result
+  } else {
+    alert('❌ No se debe eliminar este usuario. ❌')
+  }
 }
