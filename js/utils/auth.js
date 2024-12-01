@@ -1,4 +1,4 @@
-import { CONFIG } from './../../config/config.js';
+import { CONFIG } from '../../config/config.js';
 
 export async function login(email, pass) {
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;

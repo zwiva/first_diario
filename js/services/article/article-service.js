@@ -10,6 +10,8 @@ const getUserToken = () => {
 
 // 1,2,3,4
 export const _getAllSections = async () => { // ok (home)
+  console.log('import.meta.env.VITE_API_URL --->', import.meta.env);
+  console.log('process.env.VITE_API_URL --->', process.env.VITE_API_URL);
   // GET -> para traer todas las secciones y escoger una 
   const endpoint = import.meta.env.VITE_API_URL + sectionsPath;
   let response = await fetch(endpoint, {
