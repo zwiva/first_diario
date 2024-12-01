@@ -76,7 +76,7 @@ function setOptions() { // roles o medios de pago, depende de usuario
 const btn = document.getElementById("create-new-user");
 btn.addEventListener('click', async function () {
 
-  console.log('idRole actual: ', idRole);
+  // console.log('idRole actual: ', idRole);
   
   const nombre = document.getElementById('usr-create-name').value;
   const apellido = document.getElementById('usr-create-lastname').value;
@@ -96,13 +96,13 @@ btn.addEventListener('click', async function () {
     id_role: Number(tipoUsuario)
   };
 
-  console.log('data user xxxx: ', dataUser );
+  // console.log('data user xxxx: ', dataUser );
   
   try {
     const result = await _createUser(idRole,dataUser); // true o false
 
     if (!result.isSuccess) {
-      console.log('result ohno!: ', result);
+      // console.log('result ohno!: ', result);
     } else {
       dataUser = {};
       document.getElementById('usr-create-name').value = '';
@@ -119,7 +119,7 @@ btn.addEventListener('click', async function () {
     }
 
   } catch (error) {
-    console.log('error: ', error);
+    console.log('error usando _createUser: ', error);
   }
 
 

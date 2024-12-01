@@ -26,7 +26,7 @@ async function getArticleContent() {
     const response = await _getArticle(getArticleId())
     return response.data;
   } catch (error) {
-    console.log('error: ', error);
+    console.log('error en getArticleContent: ', error);
   }
 }
 
@@ -37,7 +37,7 @@ async function getSections() {
     // console.log('result', result);
     data = result.data;
   } catch (error) {
-    console.log('error: ', error);
+    console.log('error en getSections: ', error);
   }
   return data;
 }
@@ -115,13 +115,13 @@ async function editArticle() {
 
   try {
     const result = await _editArticle(getArticleId(), dataArticle)
-    console.log('res', result);
+    // console.log('res', result);
     if (result.isSuccess) {
       clearForm();
       window.location.href = "./article-all";
     }
   } catch (error) {
-    console.log('error: ', error);
+    console.log('error en _editArticle: ', error);
   }
 }
 

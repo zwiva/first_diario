@@ -13,7 +13,7 @@ async function getArticlesBySectionId() {
       return data
     }
   } catch (error) {
-    console.log('error: ', error);
+    console.log('error en getArticlesBySectionId: ', error);
   }
 }
 
@@ -26,7 +26,7 @@ async function getSections() {
       return data
     }
   } catch (error) {
-    console.log('error: ', error);
+    console.log('error en getSections: ', error);
   }
 }
 

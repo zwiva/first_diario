@@ -8,7 +8,3 @@ document.addEventListener("DOMContentLoaded", () => {
   renderNavbar("navbar-container");
   renderFooter("footer-container");
 });
-
-export function generarNoticia(param) {
-  console.log('param main', param);
-}

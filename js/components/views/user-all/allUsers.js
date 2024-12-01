@@ -7,14 +7,13 @@ const getData = async () => {
     const response = await _getAllUsers();
 
     if (!response?.isSuccess) {
-      console.log('Error', error.message);
+      console.log('Error en getData: ', error.message);
       return;
     } else {
       return response
     }
-
   } catch (error) {
-    console.log('error', error);
+    console.log('error getData', error);
   }
 }
 
@@ -73,7 +72,7 @@ const buildView = async () => {
 
     const btnEdit = document.getElementById(`editar-usuario-${user.id}`)
     btnEdit.addEventListener('click', function () {
-      console.log('editar usuario', user.id);
+      // console.log('editar usuario', user.id);
       const usuarioString = JSON.stringify(user)
       localStorage.setItem('user-edit', usuarioString)
       window.location.href = "./user-edit.html"
@@ -88,12 +87,12 @@ const buildView = async () => {
 }
 
 function eliminarUsuario(id) {
-  console.log('eliminar usuario', id);
+  // console.log('eliminar usuario', id);
   // comunicar con db para eliminar 📌 (invocar servicio)
   try {
     const result = ''
   } catch (error) {
-    console.log('error: ', error);
+    console.log('error en eliminarUsuario: ', error);
   }
 }
 

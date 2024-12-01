@@ -25,9 +25,9 @@ export const _getAllUsers = async () => { // OK
 
 // idRole 1,3
 export async function _createUser(role, data) { // pendiente
-  console.log('data user----->', data);
+  // console.log('data user----->', data);
   if (role == 3) {
-    const endpoint = import.meta.env.VITE_API_URL +CONFIG.register;
+    const endpoint = import.meta.env.VITE_API_URL + CONFIG.register;
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
@@ -58,10 +58,8 @@ export async function _createUser(role, data) { // pendiente
 // idRole 1
 export async function _editUser(data) { // pendiente
   // POST O PUT -->
-
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
-  console.log('apuntando a: ', endpoint);
-
+  // console.log('apuntando a: ', endpoint);
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
@@ -70,25 +68,15 @@ export async function _editUser(data) { // pendiente
     },
     body: JSON.stringify(data)
   });
-
   const result = await response.json();
-
-  console.log('result', result);
-
-  if (result.isSuccess) {
-    // si se crea bien el usuario 
-
-  } else {
-
-  }
-
+  return result;
 }
 
 // idRole 1
 export async function _deleteUser(data) { // pendiente
   // DELETE --> eliminar usuario
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
-  console.log('apuntando a: ', endpoint);
+  // console.log('apuntando a: ', endpoint);
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
@@ -98,7 +86,7 @@ export async function _deleteUser(data) { // pendiente
     body: JSON.stringify(data)
   });
   const result = await response.json();
-  console.log('result', result);
+  // console.log('result', result);
   return result
 
 }

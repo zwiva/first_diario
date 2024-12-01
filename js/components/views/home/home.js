@@ -70,7 +70,7 @@ async function getAllLatestOfAll() {
       return data
     }
   } catch (error) {
-    console.log('error en getAllSections: ', error);
+    console.log('error en getAllLatestOfAll: ', error);
   }
 }
 

@@ -10,7 +10,7 @@ function salutePerson() {
     userName = user.navigation.name;
     userLastname = user.navigation.lastname;
   }
-console.log('iser', userName);
+// console.log('iser', userName);
 
   return `Hola ${userName} ${userLastname},`
 }

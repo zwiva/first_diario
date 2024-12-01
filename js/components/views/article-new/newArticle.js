@@ -16,10 +16,10 @@ async function getSections() {
   let data = [];
   try {
     const result = await _getAllSections();
-    console.log('result', result);
+    // console.log('result', result);
     data = result.data;
   } catch (error) {
-    console.log('error: ', error);
+    console.log('error en getSections: ', error);
   }
   return data;
 }
@@ -97,14 +97,14 @@ btn.addEventListener('click', async function () {
     ]
   };
 
-  console.log('data article ', dataArticle);
+  // console.log('data article ', dataArticle);
 
   const result = await saveArticle(dataArticle);
 
-  console.log('result', result);
+  // console.log('result', result);
 
   if (result.isSuccess) {
-    console.log('limpiar formulario');
+    // console.log('limpiar formulario');
     dataArticle = {};
     document.getElementById('art-create-title').value = '';
     document.getElementById('art-create-img-main').value = '';
@@ -130,7 +130,7 @@ const saveArticle = async (data) => {
     const response = await _createArticle(data)
     return response;
   } catch (error) {
-    console.log('error', error);
+    console.log('error en saveArticle', error);
   }
 }
 

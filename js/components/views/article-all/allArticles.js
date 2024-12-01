@@ -88,7 +88,7 @@ async function eliminarArticulo(id) {
     const result = await _deleteArticle(id);
     window.location.href = './article-all.html'
   } catch (error) {
-    console.log('error: ', error);
+    console.log('error el eliminarArticulo: ', error);
   }
 }
 

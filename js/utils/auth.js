@@ -3,7 +3,7 @@ import { CONFIG } from '../../config/config.js';
 export async function login(email, pass) {
   const endpoint = import.meta.env.VITE_API_URL + CONFIG.login;
 
-  console.log('haciendo login en: ', endpoint);
+  // console.log('haciendo login en: ', endpoint);
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
@@ -14,7 +14,7 @@ export async function login(email, pass) {
 
   const result = await response.json();
 
-  console.log('result', result);
+  // console.log('result', result);
 
   if (result.isSuccess) {
 

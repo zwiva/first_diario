@@ -1,5 +1,3 @@
-console.log('andando el editUser.js');
-
 // 🚨 EN ESTA VISTA SE PUEDE EDITAR UN USUARIO 🚨
 
 
@@ -16,7 +14,7 @@ function editUser() {
   try {
     const result = ''
   } catch (error) {
-    console.log('error: ', error);
+    console.log('error editUser: ', error);
   }
 
 }

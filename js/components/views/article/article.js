@@ -71,7 +71,7 @@ async function getArticleById() {
       return data
     }
   } catch (error) {
-    console.log('error: ', error);
+    console.log('error en getArticleById: ', error);
   }
 }
 
