@@ -79,6 +79,13 @@ async function setArticleDataInView() {
   const articleData = await result[0]
   console.log('articleData', articleData);
 
+  const section = document.getElementById('actions-section')
+  const btn = document.createElement('button')
+  btn.classList = ['btn']
+  btn.innerHTML = 'Editar artículo'
+  btn.addEventListener('click', editArticle)
+  section.appendChild(btn)
+
   document.getElementById('art-edit-title').value = articleData.title;
   document.getElementById('art-edit-img-main').value = articleData.img;
   document.getElementById('art-edit-summary').value = articleData.summary;
@@ -93,13 +100,7 @@ async function setArticleDataInView() {
   document.getElementById('art-edit-p5').value = articleData.content[4]?.paragraph || '';
   document.getElementById('art-edit-img-5').value = articleData.content[4]?.img || '';
   document.getElementById('art-edit-link').value = articleData.urlRecomend;
-  document.getElementById('art-edit-section').option.value = articleData.id_section;
-  const section = document.getElementById('actions-section')
-  const btn = document.createElement('button')
-  btn.classList = ['btn']
-  btn.innerHTML = 'Editar artículo'
-  btn.addEventListener('click', editArticle)
-  section.appendChild(btn)
+  document.getElementById('art-edit-section').value = articleData.id_section.toString();
 }
 
 async function editArticle() {
