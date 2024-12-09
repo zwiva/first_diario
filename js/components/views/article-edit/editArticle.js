@@ -103,18 +103,18 @@ async function setArticleDataInView() {
       option.value = articleData.id_section;
       option.textContent = articleData.section;
     }
-    
+
     select.appendChild(option);
   })
 
-  // selectSections.appendChild(select)
+  const selectSections = document.getElementById("sections-edit");
+  selectSections.appendChild(select)
 
 
   // const selected = document.getElementById('art-edit-section');
   // option.textContent = articleData.section;
   // option.value = articleData.id_section;
 
-  // const selectSections = document.getElementById("sections-edit");
 
 }
 
