@@ -100,7 +100,9 @@ async function setArticleDataInView() {
   document.getElementById('art-edit-p5').value = articleData.content[4]?.paragraph || '';
   document.getElementById('art-edit-img-5').value = articleData.content[4]?.img || '';
   document.getElementById('art-edit-link').value = articleData.urlRecomend;
-  document.getElementById('art-edit-section').value = articleData.id_section.toString();
+  const option = document.getElementById('art-edit-section')
+  option.textContent = articleData.section;
+  option.value = articleData.id_section;
 }
 
 async function editArticle() {
