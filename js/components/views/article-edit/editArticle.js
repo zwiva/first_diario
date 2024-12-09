@@ -135,6 +135,8 @@ async function editArticle() {
     if (result.isSuccess) {
       clearForm();
       window.location.href = "./article-all";
+    } else {
+      alert(`🚫 Error al editar 🚫: ${result.message}`)
     }
   } catch (error) {
     console.log('error en _editArticle: ', error);

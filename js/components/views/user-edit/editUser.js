@@ -118,6 +118,8 @@ async function editUser() {
     if (result.isSuccess) {
       clearForm();
       window.location.href = "./user-all";
+    } else {
+      alert(`🚫 Error al editar 🚫: ${result.message}`)
     }
   } catch (error) {
     console.log('error en editUser: ', error);

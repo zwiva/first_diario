@@ -117,6 +117,7 @@ function drawForm() {
     try {
       const result = await _createUser(idRole, dataUser); // true o false
       if (!result.isSuccess) {
+        alert(`🚫 Error al crear 🚫: ${result.message}`)
         // console.log('result ohno!: ', result);
       } else {
         dataUser = {};

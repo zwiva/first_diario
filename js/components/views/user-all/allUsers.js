@@ -105,6 +105,8 @@ async function eliminarUsuario(id) {
       console.log('res', result);
       if (result.isSuccess) {
         window.location.href = './user-all.html'
+      } else {
+        alert(`🚫 Error al eliminar 🚫: ${result.message}`)
       }
     } catch (error) {
       console.log('error en eliminarUsuario: ', error);

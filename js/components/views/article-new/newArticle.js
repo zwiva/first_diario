@@ -139,6 +139,8 @@ function drawForm() {
       document.getElementById('art-create-img-5').value = '';
       document.getElementById('art-create-link').value = '';
       window.location.href = "./article-all.html"
+    } else {
+      alert(`🚫 Error al crear 🚫: ${result.message}`)
     }
 
   });
@@ -150,7 +152,7 @@ const saveArticle = async (data) => {
   try {
     const response = await _createArticle(data)
     return response;
-  } catch (error) {    
+  } catch (error) {
     console.log('error en saveArticle -> front', error);
   }
 }
