@@ -17,8 +17,8 @@ function detectRole() {
 async function getArticles() {
   try {
     const result = await _getAllArticles()
-    result.data.sort((a, b) => (a.updateDate != null) ? b.updateDate - a.updateDate : b.createdDate - a.createdDate );
-    result.data.sort((a, b) => a.id_section - b.id_section) // ordenado por id
+    result.data.sort((a, b) => a.updateDate == null ? new (b.createdDate) - new Date(a.createdDate) : new Date(b.updateDate) - new Date(a.updateDate))
+    result.data.sort((a, b) => a.id_section - b.id_section) // ordenado por id_section
     return result.data
   } catch (error) {
     console.log('error: ', error);

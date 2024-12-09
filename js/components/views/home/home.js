@@ -79,7 +79,7 @@ async function buildLatestOfAll() { // 10 o 3
   // CENTRO: MOSTRAR 1 ARTICULOS por seccion || max 3
   const recentArticlesList = document.getElementById('recent-article-list');
   const recentArticles = await getAllLatestOfAll();
-  recentArticles.sort((a,b) => a.updateDate != null ? b.updateDate - a.updateDate :  b.createdDate - a.createdDate )
+  recentArticles.sort((a, b) => a.updateDate == null ? new (b.createdDate) - new Date(a.createdDate) : new Date(b.updateDate) - new Date(a.updateDate))
   recentArticles.forEach(article => {
     const recentArticle = document.createElement('div');
     recentArticle.classList = ['article-body']

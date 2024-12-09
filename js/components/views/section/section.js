@@ -52,7 +52,7 @@ async function buildView() {
     console.log('articlesBySection', articlesBySection);
 
     if (articlesBySection.length > 0) {
-      articlesBySection.sort((a,b) => a.updateDate != null ? b.updateDate - a.updateDate :  b.createdDate - a.createdDate )
+      articlesBySection.sort((a, b) => a.updateDate == null ? new (b.createdDate) - new Date(a.createdDate) : new Date(b.updateDate) - new Date(a.updateDate))
 
       articlesBySection.forEach(articulo => {
         const eachArticle = document.createElement('div');

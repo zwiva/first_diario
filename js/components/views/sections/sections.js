@@ -75,7 +75,7 @@ async function buildLatestOfAll() { // 10 o 3
     sectionEachGroup.classList = ['section_each--group']
 
     // section.articles.sort((a,b) => b.createdDate - a.createdDate);
-    section.articles.sort((a,b) => a.updateDate != null ? b.updateDate - a.updateDate :  b.createdDate - a.createdDate )
+    section.articles.sort((a, b) => a.updateDate == null ? new (b.createdDate) - new Date(a.createdDate) : new Date(b.updateDate) - new Date(a.updateDate))
 
     section.articles.forEach(article => {
       // console.log('a', article);
