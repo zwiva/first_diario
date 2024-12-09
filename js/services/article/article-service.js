@@ -124,19 +124,23 @@ export const _getArticlesBySection = async (id) => { // ok
 // 1,2
 export const _createArticle = async (data) => { // ok
   // POST -> crear articulo
-  const endpoint = import.meta.env.VITE_API_URL + CONFIG.articles;
-  // console.log('apuntando a: ', endpoint);
-  const response = await fetch(endpoint, {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${getUserToken()}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  });
-  const result = await response.json();
-  // console.log('result en create article', result);
-  return result;
+  try {
+    const endpoint = import.meta.env.VITE_API_URL + CONFIG.articles;
+    // console.log('apuntando a: ', endpoint);
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${getUserToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    const result = await response.json();
+    // console.log('result en create article', result);
+    return result;
+  } catch (error) {
+    console.log('error en saveArticle -> ', error);
+  }
 
 }
 

@@ -150,8 +150,8 @@ const saveArticle = async (data) => {
   try {
     const response = await _createArticle(data)
     return response;
-  } catch (error) {
-    console.log('error en saveArticle', error);
+  } catch (error) {    
+    console.log('error en saveArticle -> front', error);
   }
 }
 
