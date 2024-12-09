@@ -52,6 +52,8 @@ async function buildView() {
     console.log('articlesBySection', articlesBySection);
 
     if (articlesBySection.length > 0) {
+      articlesBySection.sort((a,b) => a.updateDate =! null ? b.updateDate - a.updateDate :  b.createdDate - a.createdDate )
+
       articlesBySection.forEach(articulo => {
         const eachArticle = document.createElement('div');
         eachArticle.classList = ['section_each-news'];
