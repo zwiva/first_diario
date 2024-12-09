@@ -161,9 +161,9 @@ function clearForm() {
   document.getElementById('art-edit-link').value = '';
 }
 
-function buildView() {
-  setSections()
-  setArticleDataInView()
+async function buildView() {
+  await setSections()
+  await setArticleDataInView()
 }
 
 // function showStatus() {
