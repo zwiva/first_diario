@@ -14,7 +14,6 @@ function detectRole() {
   return idRole;
 }
 
-let sections = [];
 function detectUserId() {
   let userId = '';
   if (localStorage.getItem('navigation')) {
@@ -54,24 +53,6 @@ async function getSections() {
   return data;
 }
 
-async function setSections() {
-  const selectSections = document.getElementById("sections-edit");
-  sections = await getSections();
-  console.log('sectionsss', sections);
-
-  const select = document.createElement('select');
-  select.classList = ['form-input']
-  select.id = 'art-edit-section'
-
-  sections.forEach(section => {
-    const option = document.createElement('option')
-    option.value = section.id
-    option.textContent = section.name
-    select.appendChild(option);
-  })
-  selectSections.appendChild(select)
-}
-
 async function setArticleDataInView() {
 
   const result = await getArticleContent()
@@ -100,9 +81,41 @@ async function setArticleDataInView() {
   document.getElementById('art-edit-p5').value = articleData.content[4]?.paragraph || '';
   document.getElementById('art-edit-img-5').value = articleData.content[4]?.img || '';
   document.getElementById('art-edit-link').value = articleData.urlRecomend;
-  const option = document.getElementById('art-edit-section')
-  option.textContent = articleData.section;
-  option.value = articleData.id_section;
+  
+  
+  // construir selector
+  const select = document.createElement('select');
+  select.classList = ['form-input'];
+  select.id = 'art-edit-section';
+  
+  // cargar selector
+  let sections = [];
+  sections = await getSections();
+  console.log('sectionsss', sections);
+
+  sections.forEach(section => {
+    const option = document.createElement('option')
+    option.value = section.id
+    option.textContent = section.name
+
+    if(articleData.id_section === section.id){
+      option.selected = true;
+      option.value = articleData.id_section;
+      option.textContent = articleData.section;
+    }
+    
+    select.appendChild(option);
+  })
+
+  // selectSections.appendChild(select)
+
+
+  // const selected = document.getElementById('art-edit-section');
+  // option.textContent = articleData.section;
+  // option.value = articleData.id_section;
+
+  // const selectSections = document.getElementById("sections-edit");
+
 }
 
 async function editArticle() {
@@ -164,7 +177,6 @@ function clearForm() {
 }
 
 async function buildView() {
-  await setSections()
   await setArticleDataInView()
 }
 
