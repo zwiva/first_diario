@@ -76,8 +76,8 @@ async function setArticleDataInView() {
 
   const result = await getArticleContent()
   // console.log('result', result);
-  const articleData = result[0]
-  // console.log('articleData', articleData.id_section);
+  const articleData = await result[0]
+  console.log('articleData', articleData);
 
   document.getElementById('art-edit-title').value = articleData.title;
   document.getElementById('art-edit-img-main').value = articleData.img;
