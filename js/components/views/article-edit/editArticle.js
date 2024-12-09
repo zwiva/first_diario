@@ -110,12 +110,6 @@ async function setArticleDataInView() {
   const selectSections = document.getElementById("sections-edit");
   selectSections.appendChild(select)
 
-
-  // const selected = document.getElementById('art-edit-section');
-  // option.textContent = articleData.section;
-  // option.value = articleData.id_section;
-
-
 }
 
 async function editArticle() {
@@ -133,30 +127,33 @@ async function editArticle() {
     }
   }
 
+  const sectionSelected = document.getElementById('art-edit-section');
+  sectionSelected.selected
+
   let dataArticle = {
     id_user: detectUserId(),
     title: document.getElementById('art-edit-title').value,
     img: document.getElementById('art-edit-img-main').value,
     summary: document.getElementById('art-edit-summary').value,
     urlRecomend: document.getElementById('art-edit-link').value,
-    id_section: parseInt(document.getElementById('art-edit-section').value),
+    id_section: sectionSelected.value,
     content: contentEdit
   };
 
-  // console.log('dataArticle', dataArticle);
+  console.log('dataArticle', dataArticle);
 
-  try {
-    const result = await _editArticle(getArticleId(), dataArticle)
-    // console.log('res', result);
-    if (result.isSuccess) {
-      clearForm();
-      window.location.href = "./article-all";
-    } else {
-      alert(`🚫 Error al editar 🚫: ${result.message}`)
-    }
-  } catch (error) {
-    console.log('error en _editArticle: ', error);
-  }
+  // try {
+  //   const result = await _editArticle(getArticleId(), dataArticle)
+  //   // console.log('res', result);
+  //   if (result.isSuccess) {
+  //     clearForm();
+  //     window.location.href = "./article-all";
+  //   } else {
+  //     alert(`🚫 Error al editar 🚫: ${result.message}`)
+  //   }
+  // } catch (error) {
+  //   console.log('error en _editArticle: ', error);
+  // }
 }
 
 function clearForm() {
