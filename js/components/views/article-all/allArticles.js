@@ -17,7 +17,7 @@ function detectRole() {
 async function getArticles() {
   try {
     const result = await _getAllArticles()
-    result.data.sort((a, b) => a.id - b.id) // ordenado por id
+    result.data.sort((a, b) => a.id_section - b.id_section) // ordenado por id
     return result.data
   } catch (error) {
     console.log('error: ', error);
