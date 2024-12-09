@@ -74,6 +74,7 @@ async function buildLatestOfAll() { // 10 o 3
     const sectionEachGroup = document.createElement('div')
     sectionEachGroup.classList = ['section_each--group']
 
+    section.articles.sort((a,b) => a.updateDate? a.updateDate - b.updateDate: a.createdDate - b.createdDate);
     section.articles.forEach(article => {
       // console.log('a', article);
       const eachArticle = document.createElement('div')
