@@ -140,20 +140,20 @@ async function editArticle() {
     content: contentEdit
   };
 
-  console.log('dataArticle', dataArticle);
+  // console.log('dataArticle', dataArticle);
 
-  // try {
-  //   const result = await _editArticle(getArticleId(), dataArticle)
-  //   // console.log('res', result);
-  //   if (result.isSuccess) {
-  //     clearForm();
-  //     window.location.href = "./article-all";
-  //   } else {
-  //     alert(`🚫 Error al editar 🚫: ${result.message}`)
-  //   }
-  // } catch (error) {
-  //   console.log('error en _editArticle: ', error);
-  // }
+  try {
+    const result = await _editArticle(getArticleId(), dataArticle)
+    // console.log('res', result);
+    if (result.isSuccess) {
+      clearForm();
+      window.location.href = "./article-all";
+    } else {
+      alert(`🚫 Error al editar 🚫: ${result.message}`)
+    }
+  } catch (error) {
+    console.log('error en _editArticle: ', error);
+  }
 }
 
 function clearForm() {
