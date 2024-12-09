@@ -13,16 +13,6 @@ function detectRole() {
   return idRole;
 }
 
-// function detectUserId() {
-//   let userId = '';
-//   if (localStorage.getItem('navigation')) {
-//     let user = JSON.parse(localStorage.getItem('navigation'))
-//     userId = user.navigation.id_user;
-//   }
-//   // console.log('token---->', token.authToken);
-//   return userId
-// }
-
 function getUserData() {
   const data = localStorage.getItem('user-edit');
   const userData = JSON.parse(data);
@@ -84,7 +74,7 @@ function setUserDataInView() {
 async function editUser() {
 
   const userData = getUserData();
-  console.log('userData editando: ', userData);
+  // console.log('userData editando: ', userData);
 
   const example = {
     // no cambian
@@ -114,7 +104,7 @@ async function editUser() {
 
   try {
     const result = await _editUser(userData.id, body)
-    console.log('res', result);
+    // console.log('res', result);
     if (result.isSuccess) {
       clearForm();
       window.location.href = "./user-all";

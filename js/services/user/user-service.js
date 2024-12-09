@@ -73,7 +73,7 @@ export async function _editUser(id, data) { // ok
 // idRole 1
 export async function _deleteUser(id) { // pendiente
   // DELETE --> eliminar usuario
-  console.log('id', id);
+  // console.log('id', id);
   if (id !== 1) {
     const endpoint = import.meta.env.VITE_API_URL + CONFIG.users + '/' + id;
     // console.log('apuntando a: ', endpoint);

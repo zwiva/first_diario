@@ -102,7 +102,7 @@ async function eliminarUsuario(id) {
   if (confirm(`Estas seguro de eliminar a idUsuario: ${id}`)) {
     try {
       const result = await _deleteUser(id);
-      console.log('res', result);
+      // console.log('res', result);
       if (result.isSuccess) {
         window.location.href = './user-all.html'
       } else {

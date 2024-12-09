@@ -49,7 +49,7 @@ async function buildView() {
     const articulosContainer = document.getElementById('articles-by-section');
 
     const articlesBySection = await getArticlesBySectionId();
-    console.log('articlesBySection', articlesBySection);
+    // console.log('articlesBySection', articlesBySection);
 
     if (articlesBySection.length > 0) {
       articlesBySection.sort((a, b) => a.updateDate == null ? new Date(b.createdDate) - new Date(a.createdDate) : new Date(b.updateDate) - new Date(a.updateDate))

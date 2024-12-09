@@ -11,7 +11,7 @@ function detectRole() {
     let data = JSON.parse(localStorage.getItem('navigation'))
     idRole = data.navigation.id_role;
   }
-  console.log('idRole', idRole);
+  // console.log('idRole', idRole);
 
   return idRole;
 }
@@ -153,7 +153,7 @@ function setStatus() {
   section2.appendChild(h3)
 }
 
-console.log('role', idRole);
+// console.log('role', idRole);
 
 
 if (idRole !== 4 || idRole !== 2) {

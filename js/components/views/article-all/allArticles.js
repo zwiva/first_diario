@@ -100,7 +100,7 @@ async function eliminarArticulo(id) {
   if (confirm(`Estas seguro de eliminar el idArtículo: ${id}`)) {
     try {
       const result = await _deleteArticle(id);
-      console.log('res', result);
+      // console.log('res', result);
       if (result.isSuccess) {
         window.location.href = './article-all.html'
       } else {

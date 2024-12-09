@@ -114,7 +114,7 @@ async function buildLatestOfAll() { // 10 o 3
       sectionEachGroup.appendChild(eachArticle)
 
     });
-    console.log('en secciones: ', section.articles);
+    // console.log('en secciones: ', section.articles);
     
 
     sectionEach.appendChild(sectionEachGroup)

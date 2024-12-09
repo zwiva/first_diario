@@ -173,7 +173,7 @@ function showStatus() {
 }
 
 const idRole = detectRole()
-console.log('idRole', idRole);
+// console.log('idRole', idRole);
 
 if (idRole == 3 || idRole == 4) {
   window.location.href = 'index.html'

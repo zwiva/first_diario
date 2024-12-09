@@ -58,7 +58,7 @@ async function setArticleDataInView() {
   const result = await getArticleContent()
   // console.log('result', result);
   const articleData = await result[0]
-  console.log('articleData', articleData);
+  // console.log('articleData', articleData);
 
   const section = document.getElementById('actions-section')
   const btn = document.createElement('button')
@@ -91,7 +91,7 @@ async function setArticleDataInView() {
   // cargar selector
   let sections = [];
   sections = await getSections();
-  console.log('sectionsss', sections);
+  // console.log('sectionsss', sections);
 
   sections.forEach(section => {
     const option = document.createElement('option')
